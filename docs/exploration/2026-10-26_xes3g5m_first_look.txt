@@ -1,0 +1,122 @@
+=== train_valid_sequences_quelevel.csv ===
+columns: ['fold', 'uid', 'questions', 'concepts', 'responses', 'timestamps', 'selectmasks']
+rows (subsequences): 30965
+unique uid: 14453
+fold counts:
+ fold
+0    6186
+1    6172
+2    6234
+3    6183
+4    6190
+
+=== test_quelevel.csv ===
+columns: ['fold', 'uid', 'questions', 'concepts', 'responses', 'timestamps']
+rows (subsequences): 3613
+unique uid: 3613
+fold counts:
+ fold
+-1    3613
+
+uids in BOTH train and test: 0
+subsequence length: min 200 max 200 mean 200.0
+subsequences at exactly 200 (truncation signature): 30965 of 30965
+selectmask==1: 4446374  (==-1 / padded: 1746626 )
+interactions: 6193000
+note: columns absent in this file: ['selectmasks']
+subsequence length: min 201 max 749 mean 305.2
+subsequences at exactly 200 (truncation signature): 0 of 3613
+interactions: 1102810
+
+[train] subsequences per uid:
+count    14453.00
+mean         2.14
+std          0.40
+min          1.00
+25%          2.00
+50%          2.00
+75%          2.00
+max          5.00
+uids with 1 subsequence: 243 (1.7%)
+uids with 5+ subsequences: 1 (0.0%)
+
+[test] subsequences per uid:
+count    3613.0
+mean        1.0
+std         0.0
+min         1.0
+25%         1.0
+50%         1.0
+75%         1.0
+max         1.0
+uids with 1 subsequence: 3613 (100.0%)
+uids with 5+ subsequences: 0 (0.0%)
+
+[train] timestamps monotonic within uid (after sort by ts): 100.0%
+gap to previous interaction (seconds): share exactly 0: 65.0% | share < 60 s: 66.5% | median non-zero gap (s): 1155
+date range: 1969-12-31 to 2021-05-29
+
+[test] timestamps monotonic within uid (after sort by ts): 100.0%
+gap to previous interaction (seconds): share exactly 0: 51.8% | share < 60 s: 53.9% | median non-zero gap (s): 1157
+date range: 2001-01-06 to 2021-05-29
+
+unique questions: train 7619 | test 7052 | union 7652
+questions in test but not train: 33
+
+[train] REPEAT PREVIEW
+repeat events: 1924883 (31.08% of interactions)
+uids with >=1 repeat: 14402 (99.6% of uids)
+by kind:
+ kind
+review        1878171
+correction      46712
+by gap class:
+ gap_class
+same_batch    1777972
+<1h             51129
+<1d             51813
+<7d             24780
+7d+             19189
+kind x gap:
+ gap_class   same_batch    <1h    <1d    <7d    7d+
+kind                                              
+correction        9036  15655  11275   5987   4759
+review         1768936  35474  40538  18793  14430
+repeats crossing a subsequence boundary: 6079 (0.3%)
+outcome on repeat | kind:
+ kind
+correction    0.631
+review       -0.849
+
+[test] REPEAT PREVIEW
+repeat events: 48407 (4.39% of interactions)
+uids with >=1 repeat: 3246 (89.8% of uids)
+by kind:
+ kind
+review        36538
+correction    11869
+by gap class:
+ gap_class
+same_batch    11474
+<1h           13079
+<1d           13218
+<7d            6077
+7d+            4559
+kind x gap:
+ gap_class   same_batch   <1h    <1d   <7d   7d+
+kind                                           
+correction        2364  3990   2878  1432  1205
+review            9110  9089  10340  4645  3354
+repeats crossing a subsequence boundary: 0 (0.0%)
+outcome on repeat | kind:
+ kind
+correction    0.624
+review        0.947
+
+=== metadata/questions.json ===
+questions: 7652
+example key: 0 | fields: ['content', 'kc_routes', 'answer', 'analysis', 'type', 'options']
+type counts (0=fill-in, 1=multiple-choice): {'填空': 6142, '单选': 1510}
+number of kc_routes per question: {1: 5543, 2: 1780, 3: 184, 4: 94, 5: 19, 6: 25, 7: 1, 8: 6}
+
+wrote: ['repeat_events_preview.csv', 'test_subseq_per_uid.csv', 'train_subseq_per_uid.csv']

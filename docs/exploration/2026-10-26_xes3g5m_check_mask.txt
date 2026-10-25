@@ -1,0 +1,51 @@
+=== 1. What is under mask == -1? ===
+mask -1 cells: 1746626
+  question == -1 (pure padding): 1746626 (100.00%)
+  real question id: 0 (0.00%)
+mask -1 response values: {-1: 1746626}
+mask -1 ts == -1: 1746626 (100.00%)
+rows with padding: 14126 | padding is a contiguous tail ending at pos 199: 100.00%
+
+=== 2. Do consecutive rows of a uid overlap? ===
+uids sampled: 2000
+uids whose row-1 head repeats row-0 tail (>=1 identical interaction): 35 (1.75%)
+mean overlapping interactions when > 0: 1.0
+
+=== 3. Reconstructed train sequences ===
+students: 14453 | interactions: 4446374
+interactions per student: min 200 median 286 mean 307.6 max 913
+monotonic ts within uid: 100.00%
+exact duplicate (uid, question, response, ts) interactions: 89617 (2.016%)  <- same-batch repeats with same answer will land here too
+
+=== 4. Train repeat preview (padding removed) ===
+repeat events: 192383 (4.33% of interactions)
+uids with >=1 repeat: 13026 (90.1%)
+by kind:
+ kind
+review        145671
+correction     46712
+kind x gap:
+ gap_class   same_batch    <1h    <1d    <7d    7d+
+kind                                              
+correction        9036  15655  11275   5987   4759
+review           36436  35474  40538  18793  14430
+repeats crossing a row boundary: 6079 (3.16%)
+outcome on repeat | kind:
+ kind
+correction    0.631
+review        0.943
+attempt number distribution (1 = second attempt):
+ attempt
+1    181288
+2     10347
+3       748
+
+=== 5. Timestamp sanity [train] ===
+interactions before 2019: 23 | students affected: 1
+earliest: 2018-08-15 | example uids: ['12573']
+
+=== 5. Timestamp sanity [test] ===
+interactions before 2019: 7 | students affected: 1
+earliest: 2001-01-06 | example uids: ['10631']
+
+wrote: train_clean_long.parquet, train_repeat_events_clean.csv
