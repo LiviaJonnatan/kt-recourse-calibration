@@ -14,7 +14,8 @@ config.local.yaml
 .idea/
 *.swp
 
-data/
+data/raw
+data/processed
 !data/README.md
 
 # macOS
