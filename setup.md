@@ -108,11 +108,7 @@ Add entries at the top. Format: date, who, what broke or changed, what was done,
 - **Fix:**
 - **Why this and not something else:**
 
-<!-- Example entry, delete when the first real one is added:
+### 2026-10-25 — LJ
 
-### 2026-10-26 — LJ
-
-- **Problem:** KTCF `requirements.txt` pins `torch==1.x`, incompatible with the MPS wheel.
-- **Fix:** Added torch unpinned via `uv add torch`; resolver chose 2.x. Ran smoke test; passes with `PYTORCH_ENABLE_MPS_FALLBACK=1`.
-- **Why:** Downgrading torch would lose MPS. The pyKT models in use do not depend on 1.x APIs.
--->
+- **Problem:** KTCF vendors pyKT as a bare source folder; `uv add --editable` rejects it.
+- **Fix:** import via `sys.path` from `KTCF_ROOT` (`src/common/ktcf_path.py`); pyKT’s dependencies added manually from `../ktcf/requirements.txt` (list them). Upstream pykt-toolkit deferred to later.
