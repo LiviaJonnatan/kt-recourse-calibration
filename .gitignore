@@ -1,0 +1,40 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+config.local.yaml
+*.egg-info/
+
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+.vscode/
+.idea/
+*.swp
+
+data/
+!data/README.md
+
+# macOS
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Model checkpoints and large outputs (keep results small and committed; ignore the heavy stuff)
+checkpoints/
+saved_model/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Regenerable artifacts
+results/raw/
+logs/
+*.log
+wandb/
+mlruns/
