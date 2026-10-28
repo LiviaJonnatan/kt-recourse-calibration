@@ -1,0 +1,16 @@
+questions total: 7651
+with >= 30 train first attempts: 5957
+test-only or sparse (no tercile): 1694
+difficulty quantiles among qualifying:
+ 0.00    0.000
+0.25    0.099
+0.50    0.187
+0.75    0.321
+1.00    1.000
+tercile boundaries:
+            min    max  count
+tercile                     
+easy     0.000  0.126   1986
+medium   0.126  0.265   1985
+hard     0.265  1.000   1986
+wrote data/processed/item_difficulty.csv

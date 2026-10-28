@@ -9,7 +9,7 @@ Our commit at the time of this reproduction: `786f553c550a9fdd74839f121ad6f2d1d9
 | Package | KTCF `requirements.txt` | Ours | Note |
 | --- | --- | --- | --- |
 | Python | 3.12.11 | 3.12 | |
-| torch | 2.7.1+cu128 | 2.14.1` | CUDA wheel dropped; CPU/MPS build |
+| torch | 2.7.1+cu128 | 2.14.1 | CUDA wheel dropped; CPU/MPS build |
 | numpy | 2.0.0 | 2.5.4 | unpinned |
 | pandas | 2.2.3 | 3.1.0 | unpinned |
 | scipy | 1.13.1 | 1.18.1 | `hamming` used in `cf_generator.py` |
