@@ -1,0 +1,381 @@
+Namespace(alg='ktcf', init_scheme=1, lr=0.01, max_iter=200, init_noise_std=0.1, init_lambda_convex=0.5, init_temp=0.1, lambda_pred=1.0, lambda_prox=0.1, lambda_kc=0.001, lambda_div=0.001, kc_mask=10, early_stopping_eta=0.0001, save_file_name='table_1_results.csv')
+Converged at iteration 190
+ktcf, instance 0: validity=1.0, sparsity=53, sparsity %=0.266332, kc_distance=11.981132, actionability=0.0, actionability %0.000000, time=9.022264
+Converged at iteration 100
+ktcf, instance 1: validity=1.0, sparsity=52, sparsity %=0.261307, kc_distance=10.211538, actionability=0.0, actionability %0.000000, time=4.507950
+Converged at iteration 156
+ktcf, instance 2: validity=1.0, sparsity=62, sparsity %=0.311558, kc_distance=11.354839, actionability=0.0, actionability %0.000000, time=7.312213
+ktcf, instance 3: validity=0.0, sparsity=57, sparsity %=0.286432, kc_distance=9.824561, actionability=0.0, actionability %0.000000, time=9.307469
+Converged at iteration 108
+ktcf, instance 4: validity=1.0, sparsity=54, sparsity %=0.271357, kc_distance=14.407407, actionability=0.0, actionability %0.000000, time=4.990026
+Converged at iteration 186
+ktcf, instance 5: validity=1.0, sparsity=55, sparsity %=0.276382, kc_distance=10.909091, actionability=0.0, actionability %0.000000, time=8.762637
+Converged at iteration 152
+ktcf, instance 6: validity=1.0, sparsity=59, sparsity %=0.296482, kc_distance=8.830508, actionability=0.0, actionability %0.000000, time=7.051753
+Converged at iteration 132
+ktcf, instance 7: validity=1.0, sparsity=47, sparsity %=0.236181, kc_distance=15.787234, actionability=0.0, actionability %0.000000, time=5.835998
+Converged at iteration 159
+ktcf, instance 8: validity=1.0, sparsity=45, sparsity %=0.226131, kc_distance=10.111111, actionability=0.0, actionability %0.000000, time=7.056815
+Converged at iteration 101
+ktcf, instance 9: validity=1.0, sparsity=49, sparsity %=0.246231, kc_distance=15.285714, actionability=0.0, actionability %0.000000, time=4.623808
+Converged at iteration 121
+ktcf, instance 10: validity=1.0, sparsity=55, sparsity %=0.276382, kc_distance=11.963636, actionability=0.0, actionability %0.000000, time=5.784879
+Converged at iteration 88
+ktcf, instance 11: validity=1.0, sparsity=49, sparsity %=0.246231, kc_distance=14.428571, actionability=0.0, actionability %0.000000, time=4.266475
+Converged at iteration 161
+ktcf, instance 12: validity=1.0, sparsity=61, sparsity %=0.306533, kc_distance=11.475410, actionability=0.0, actionability %0.000000, time=7.533357
+Converged at iteration 81
+ktcf, instance 13: validity=1.0, sparsity=49, sparsity %=0.246231, kc_distance=12.020408, actionability=0.0, actionability %0.000000, time=4.026714
+Converged at iteration 136
+ktcf, instance 14: validity=1.0, sparsity=43, sparsity %=0.216080, kc_distance=16.418605, actionability=0.0, actionability %0.000000, time=6.601631
+Converged at iteration 184
+ktcf, instance 15: validity=1.0, sparsity=49, sparsity %=0.246231, kc_distance=12.367347, actionability=0.0, actionability %0.000000, time=9.141186
+Converged at iteration 80
+ktcf, instance 16: validity=1.0, sparsity=50, sparsity %=0.251256, kc_distance=12.120000, actionability=0.0, actionability %0.000000, time=3.948969
+ktcf, instance 17: validity=1.0, sparsity=41, sparsity %=0.206030, kc_distance=14.341463, actionability=0.0, actionability %0.000000, time=9.241524
+Converged at iteration 181
+ktcf, instance 18: validity=1.0, sparsity=61, sparsity %=0.306533, kc_distance=12.803279, actionability=0.0, actionability %0.000000, time=8.217193
+Converged at iteration 160
+ktcf, instance 19: validity=1.0, sparsity=57, sparsity %=0.286432, kc_distance=13.789474, actionability=0.0, actionability %0.000000, time=7.203860
+ktcf, instance 20: validity=1.0, sparsity=44, sparsity %=0.221106, kc_distance=14.068182, actionability=0.0, actionability %0.000000, time=8.755814
+Converged at iteration 194
+ktcf, instance 21: validity=1.0, sparsity=70, sparsity %=0.351759, kc_distance=8.400000, actionability=0.0, actionability %0.000000, time=8.590057
+Converged at iteration 113
+ktcf, instance 22: validity=1.0, sparsity=57, sparsity %=0.286432, kc_distance=11.631579, actionability=0.0, actionability %0.000000, time=4.982069
+Converged at iteration 102
+ktcf, instance 23: validity=1.0, sparsity=54, sparsity %=0.271357, kc_distance=10.740741, actionability=0.0, actionability %0.000000, time=4.489471
+Converged at iteration 130
+ktcf, instance 24: validity=1.0, sparsity=41, sparsity %=0.206030, kc_distance=10.243902, actionability=0.0, actionability %0.000000, time=5.746280
+Converged at iteration 131
+ktcf, instance 25: validity=1.0, sparsity=44, sparsity %=0.221106, kc_distance=13.022727, actionability=0.0, actionability %0.000000, time=5.772589
+Converged at iteration 83
+ktcf, instance 26: validity=1.0, sparsity=43, sparsity %=0.216080, kc_distance=14.930233, actionability=0.0, actionability %0.000000, time=3.653423
+ktcf, instance 27: validity=1.0, sparsity=56, sparsity %=0.281407, kc_distance=11.053571, actionability=0.0, actionability %0.000000, time=8.667139
+Converged at iteration 107
+ktcf, instance 28: validity=1.0, sparsity=59, sparsity %=0.296482, kc_distance=16.610169, actionability=0.0, actionability %0.000000, time=4.708526
+Converged at iteration 157
+ktcf, instance 29: validity=1.0, sparsity=63, sparsity %=0.316583, kc_distance=12.920635, actionability=0.0, actionability %0.000000, time=6.872789
+Converged at iteration 124
+ktcf, instance 30: validity=1.0, sparsity=57, sparsity %=0.286432, kc_distance=8.210526, actionability=0.0, actionability %0.000000, time=5.458747
+Converged at iteration 158
+ktcf, instance 31: validity=1.0, sparsity=51, sparsity %=0.256281, kc_distance=13.019608, actionability=0.0, actionability %0.000000, time=6.953259
+Converged at iteration 105
+ktcf, instance 32: validity=1.0, sparsity=46, sparsity %=0.231156, kc_distance=13.847826, actionability=0.0, actionability %0.000000, time=4.628750
+Converged at iteration 173
+ktcf, instance 33: validity=1.0, sparsity=46, sparsity %=0.231156, kc_distance=15.630435, actionability=0.0, actionability %0.000000, time=7.594906
+Converged at iteration 105
+ktcf, instance 34: validity=0.0, sparsity=52, sparsity %=0.261307, kc_distance=11.634615, actionability=0.0, actionability %0.000000, time=4.642493
+Converged at iteration 83
+ktcf, instance 35: validity=1.0, sparsity=47, sparsity %=0.236181, kc_distance=17.212766, actionability=0.0, actionability %0.000000, time=3.685689
+ktcf, instance 36: validity=1.0, sparsity=59, sparsity %=0.296482, kc_distance=13.779661, actionability=0.0, actionability %0.000000, time=8.725833
+Converged at iteration 100
+ktcf, instance 37: validity=1.0, sparsity=49, sparsity %=0.246231, kc_distance=10.408163, actionability=0.0, actionability %0.000000, time=4.424672
+Converged at iteration 184
+ktcf, instance 38: validity=1.0, sparsity=51, sparsity %=0.256281, kc_distance=13.117647, actionability=0.0, actionability %0.000000, time=8.196000
+Converged at iteration 170
+ktcf, instance 39: validity=1.0, sparsity=46, sparsity %=0.231156, kc_distance=13.978261, actionability=0.0, actionability %0.000000, time=7.952054
+Converged at iteration 174
+ktcf, instance 40: validity=1.0, sparsity=33, sparsity %=0.165829, kc_distance=8.848485, actionability=0.0, actionability %0.000000, time=8.332248
+Converged at iteration 123
+ktcf, instance 41: validity=1.0, sparsity=45, sparsity %=0.226131, kc_distance=9.644444, actionability=0.0, actionability %0.000000, time=5.716527
+Converged at iteration 136
+ktcf, instance 42: validity=1.0, sparsity=48, sparsity %=0.241206, kc_distance=13.687500, actionability=0.0, actionability %0.000000, time=6.149741
+Converged at iteration 136
+ktcf, instance 43: validity=1.0, sparsity=62, sparsity %=0.311558, kc_distance=10.000000, actionability=0.0, actionability %0.000000, time=6.066927
+Converged at iteration 134
+ktcf, instance 44: validity=1.0, sparsity=53, sparsity %=0.266332, kc_distance=8.867925, actionability=0.0, actionability %0.000000, time=6.012833
+Converged at iteration 162
+ktcf, instance 45: validity=1.0, sparsity=46, sparsity %=0.231156, kc_distance=12.086957, actionability=0.0, actionability %0.000000, time=7.343333
+Converged at iteration 135
+ktcf, instance 46: validity=1.0, sparsity=57, sparsity %=0.286432, kc_distance=8.543860, actionability=0.0, actionability %0.000000, time=6.381052
+Converged at iteration 119
+ktcf, instance 47: validity=1.0, sparsity=51, sparsity %=0.256281, kc_distance=9.901961, actionability=0.0, actionability %0.000000, time=5.310547
+Converged at iteration 184
+ktcf, instance 48: validity=1.0, sparsity=48, sparsity %=0.241206, kc_distance=17.770833, actionability=0.0, actionability %0.000000, time=8.167384
+Converged at iteration 176
+ktcf, instance 49: validity=1.0, sparsity=35, sparsity %=0.175879, kc_distance=16.485714, actionability=0.0, actionability %0.000000, time=7.961653
+Converged at iteration 112
+ktcf, instance 50: validity=1.0, sparsity=59, sparsity %=0.296482, kc_distance=15.559322, actionability=0.0, actionability %0.000000, time=5.281084
+Converged at iteration 132
+ktcf, instance 51: validity=1.0, sparsity=52, sparsity %=0.261307, kc_distance=8.846154, actionability=0.0, actionability %0.000000, time=6.086889
+Converged at iteration 76
+ktcf, instance 52: validity=1.0, sparsity=48, sparsity %=0.241206, kc_distance=8.166667, actionability=0.0, actionability %0.000000, time=3.427267
+Converged at iteration 86
+ktcf, instance 53: validity=1.0, sparsity=49, sparsity %=0.246231, kc_distance=10.755102, actionability=0.0, actionability %0.000000, time=3.871013
+ktcf, instance 54: validity=1.0, sparsity=54, sparsity %=0.271357, kc_distance=13.444444, actionability=0.0, actionability %0.000000, time=8.763907
+ktcf, instance 55: validity=1.0, sparsity=69, sparsity %=0.346734, kc_distance=9.231884, actionability=0.0, actionability %0.000000, time=9.096535
+Converged at iteration 129
+ktcf, instance 56: validity=1.0, sparsity=44, sparsity %=0.221106, kc_distance=11.113636, actionability=0.0, actionability %0.000000, time=6.094700
+Converged at iteration 123
+ktcf, instance 57: validity=1.0, sparsity=47, sparsity %=0.236181, kc_distance=13.000000, actionability=0.0, actionability %0.000000, time=5.503284
+ktcf, instance 58: validity=1.0, sparsity=84, sparsity %=0.422111, kc_distance=11.035714, actionability=0.0, actionability %0.000000, time=8.946999
+Converged at iteration 130
+ktcf, instance 59: validity=1.0, sparsity=48, sparsity %=0.241206, kc_distance=9.333333, actionability=0.0, actionability %0.000000, time=5.950519
+Converged at iteration 106
+ktcf, instance 60: validity=1.0, sparsity=50, sparsity %=0.251256, kc_distance=10.340000, actionability=0.0, actionability %0.000000, time=4.713508
+Converged at iteration 91
+ktcf, instance 61: validity=1.0, sparsity=45, sparsity %=0.226131, kc_distance=10.244444, actionability=0.0, actionability %0.000000, time=4.172184
+ktcf, instance 62: validity=1.0, sparsity=55, sparsity %=0.276382, kc_distance=13.400000, actionability=0.0, actionability %0.000000, time=9.330461
+Converged at iteration 107
+ktcf, instance 63: validity=1.0, sparsity=40, sparsity %=0.201005, kc_distance=15.275000, actionability=0.0, actionability %0.000000, time=5.063370
+Converged at iteration 158
+ktcf, instance 64: validity=1.0, sparsity=45, sparsity %=0.226131, kc_distance=12.266667, actionability=0.0, actionability %0.000000, time=7.544666
+Converged at iteration 194
+ktcf, instance 65: validity=1.0, sparsity=69, sparsity %=0.346734, kc_distance=8.637681, actionability=0.0, actionability %0.000000, time=9.256419
+Converged at iteration 156
+ktcf, instance 66: validity=1.0, sparsity=59, sparsity %=0.296482, kc_distance=12.813559, actionability=0.0, actionability %0.000000, time=7.141202
+Converged at iteration 98
+ktcf, instance 67: validity=1.0, sparsity=62, sparsity %=0.311558, kc_distance=14.403226, actionability=0.0, actionability %0.000000, time=4.325369
+Converged at iteration 147
+ktcf, instance 68: validity=1.0, sparsity=58, sparsity %=0.291457, kc_distance=11.810345, actionability=0.0, actionability %0.000000, time=6.687103
+Converged at iteration 172
+ktcf, instance 69: validity=1.0, sparsity=50, sparsity %=0.251256, kc_distance=10.780000, actionability=0.0, actionability %0.000000, time=7.719728
+ktcf, instance 70: validity=1.0, sparsity=65, sparsity %=0.326633, kc_distance=11.769231, actionability=0.0, actionability %0.000000, time=9.292984
+Converged at iteration 136
+ktcf, instance 71: validity=1.0, sparsity=41, sparsity %=0.206030, kc_distance=14.000000, actionability=0.0, actionability %0.000000, time=6.332712
+Converged at iteration 119
+ktcf, instance 72: validity=1.0, sparsity=48, sparsity %=0.241206, kc_distance=16.958333, actionability=0.0, actionability %0.000000, time=5.518795
+Converged at iteration 181
+ktcf, instance 73: validity=1.0, sparsity=57, sparsity %=0.286432, kc_distance=10.649123, actionability=0.0, actionability %0.000000, time=8.053784
+Converged at iteration 193
+ktcf, instance 74: validity=1.0, sparsity=70, sparsity %=0.351759, kc_distance=9.071429, actionability=0.0, actionability %0.000000, time=8.825276
+Converged at iteration 122
+ktcf, instance 75: validity=1.0, sparsity=47, sparsity %=0.236181, kc_distance=11.553191, actionability=0.0, actionability %0.000000, time=5.497325
+Converged at iteration 138
+ktcf, instance 76: validity=1.0, sparsity=59, sparsity %=0.296482, kc_distance=9.559322, actionability=0.0, actionability %0.000000, time=6.380825
+Converged at iteration 180
+ktcf, instance 77: validity=1.0, sparsity=55, sparsity %=0.276382, kc_distance=10.527273, actionability=0.0, actionability %0.000000, time=8.135097
+Converged at iteration 110
+ktcf, instance 78: validity=1.0, sparsity=43, sparsity %=0.216080, kc_distance=18.418605, actionability=0.0, actionability %0.000000, time=5.059679
+Converged at iteration 53
+ktcf, instance 79: validity=0.0, sparsity=60, sparsity %=0.301508, kc_distance=10.066667, actionability=0.0, actionability %0.000000, time=2.403090
+Converged at iteration 42
+ktcf, instance 80: validity=1.0, sparsity=47, sparsity %=0.236181, kc_distance=10.702128, actionability=0.0, actionability %0.000000, time=1.911139
+Converged at iteration 136
+ktcf, instance 81: validity=1.0, sparsity=48, sparsity %=0.241206, kc_distance=10.666667, actionability=0.0, actionability %0.000000, time=6.216884
+Converged at iteration 129
+ktcf, instance 82: validity=1.0, sparsity=46, sparsity %=0.231156, kc_distance=15.608696, actionability=0.0, actionability %0.000000, time=5.777340
+ktcf, instance 83: validity=1.0, sparsity=46, sparsity %=0.231156, kc_distance=12.782609, actionability=0.0, actionability %0.000000, time=9.161539
+ktcf, instance 84: validity=1.0, sparsity=55, sparsity %=0.276382, kc_distance=10.709091, actionability=0.0, actionability %0.000000, time=8.974203
+ktcf, instance 85: validity=1.0, sparsity=53, sparsity %=0.266332, kc_distance=10.547170, actionability=0.0, actionability %0.000000, time=8.922814
+Converged at iteration 109
+ktcf, instance 86: validity=1.0, sparsity=48, sparsity %=0.241206, kc_distance=12.958333, actionability=0.0, actionability %0.000000, time=5.103735
+ktcf, instance 87: validity=1.0, sparsity=74, sparsity %=0.371859, kc_distance=9.675676, actionability=0.0, actionability %0.000000, time=9.303873
+Converged at iteration 182
+ktcf, instance 88: validity=1.0, sparsity=46, sparsity %=0.231156, kc_distance=11.630435, actionability=0.0, actionability %0.000000, time=8.277897
+Converged at iteration 163
+ktcf, instance 89: validity=1.0, sparsity=43, sparsity %=0.216080, kc_distance=9.209302, actionability=0.0, actionability %0.000000, time=7.639445
+Converged at iteration 134
+ktcf, instance 90: validity=1.0, sparsity=46, sparsity %=0.231156, kc_distance=18.847826, actionability=0.0, actionability %0.000000, time=6.602925
+Converged at iteration 177
+ktcf, instance 91: validity=1.0, sparsity=56, sparsity %=0.281407, kc_distance=17.232143, actionability=0.0, actionability %0.000000, time=8.071517
+Converged at iteration 185
+ktcf, instance 92: validity=1.0, sparsity=66, sparsity %=0.331658, kc_distance=10.863636, actionability=0.0, actionability %0.000000, time=8.569763
+Converged at iteration 86
+ktcf, instance 93: validity=1.0, sparsity=39, sparsity %=0.195980, kc_distance=20.102564, actionability=0.0, actionability %0.000000, time=4.034621
+Converged at iteration 188
+ktcf, instance 94: validity=1.0, sparsity=54, sparsity %=0.271357, kc_distance=13.555556, actionability=0.0, actionability %0.000000, time=8.499878
+Converged at iteration 35
+ktcf, instance 95: validity=1.0, sparsity=54, sparsity %=0.271357, kc_distance=10.092593, actionability=0.0, actionability %0.000000, time=1.580355
+Converged at iteration 143
+ktcf, instance 96: validity=1.0, sparsity=48, sparsity %=0.241206, kc_distance=9.833333, actionability=0.0, actionability %0.000000, time=6.328964
+Converged at iteration 121
+ktcf, instance 97: validity=1.0, sparsity=38, sparsity %=0.190955, kc_distance=10.815789, actionability=0.0, actionability %0.000000, time=5.323281
+Converged at iteration 94
+ktcf, instance 98: validity=1.0, sparsity=37, sparsity %=0.185930, kc_distance=15.972973, actionability=0.0, actionability %0.000000, time=4.398559
+Converged at iteration 132
+ktcf, instance 99: validity=1.0, sparsity=33, sparsity %=0.165829, kc_distance=20.727273, actionability=0.0, actionability %0.000000, time=6.315434
+Converged at iteration 112
+ktcf, instance 100: validity=1.0, sparsity=56, sparsity %=0.281407, kc_distance=8.428571, actionability=0.0, actionability %0.000000, time=5.289465
+Converged at iteration 140
+ktcf, instance 101: validity=1.0, sparsity=50, sparsity %=0.251256, kc_distance=12.660000, actionability=0.0, actionability %0.000000, time=6.758569
+Converged at iteration 115
+ktcf, instance 102: validity=1.0, sparsity=45, sparsity %=0.226131, kc_distance=14.911111, actionability=0.0, actionability %0.000000, time=5.317040
+ktcf, instance 103: validity=1.0, sparsity=63, sparsity %=0.316583, kc_distance=9.000000, actionability=0.0, actionability %0.000000, time=9.172100
+Converged at iteration 189
+ktcf, instance 104: validity=1.0, sparsity=74, sparsity %=0.371859, kc_distance=7.459459, actionability=0.0, actionability %0.000000, time=8.513828
+Converged at iteration 160
+ktcf, instance 105: validity=1.0, sparsity=64, sparsity %=0.321608, kc_distance=9.921875, actionability=0.0, actionability %0.000000, time=7.641882
+Converged at iteration 153
+ktcf, instance 106: validity=1.0, sparsity=45, sparsity %=0.226131, kc_distance=12.933333, actionability=0.0, actionability %0.000000, time=7.037580
+Converged at iteration 114
+ktcf, instance 107: validity=1.0, sparsity=62, sparsity %=0.311558, kc_distance=11.854839, actionability=0.0, actionability %0.000000, time=5.211223
+ktcf, instance 108: validity=1.0, sparsity=59, sparsity %=0.296482, kc_distance=10.169492, actionability=0.0, actionability %0.000000, time=9.015881
+Converged at iteration 180
+ktcf, instance 109: validity=0.0, sparsity=57, sparsity %=0.286432, kc_distance=12.631579, actionability=0.0, actionability %0.000000, time=8.077336
+Converged at iteration 105
+ktcf, instance 110: validity=1.0, sparsity=47, sparsity %=0.236181, kc_distance=18.468085, actionability=0.0, actionability %0.000000, time=4.745985
+Converged at iteration 116
+ktcf, instance 111: validity=1.0, sparsity=58, sparsity %=0.291457, kc_distance=10.362069, actionability=0.0, actionability %0.000000, time=5.359752
+Converged at iteration 106
+ktcf, instance 112: validity=1.0, sparsity=61, sparsity %=0.306533, kc_distance=13.655738, actionability=0.0, actionability %0.000000, time=4.784888
+Converged at iteration 130
+ktcf, instance 113: validity=0.0, sparsity=51, sparsity %=0.256281, kc_distance=13.215686, actionability=0.0, actionability %0.000000, time=5.871864
+Converged at iteration 190
+ktcf, instance 114: validity=1.0, sparsity=50, sparsity %=0.251256, kc_distance=9.640000, actionability=0.0, actionability %0.000000, time=8.448775
+Converged at iteration 108
+ktcf, instance 115: validity=1.0, sparsity=47, sparsity %=0.236181, kc_distance=11.297872, actionability=0.0, actionability %0.000000, time=4.871032
+Converged at iteration 75
+ktcf, instance 116: validity=1.0, sparsity=42, sparsity %=0.211055, kc_distance=8.285714, actionability=0.0, actionability %0.000000, time=3.438771
+Converged at iteration 152
+ktcf, instance 117: validity=1.0, sparsity=50, sparsity %=0.251256, kc_distance=12.920000, actionability=0.0, actionability %0.000000, time=6.859685
+Converged at iteration 91
+ktcf, instance 118: validity=1.0, sparsity=47, sparsity %=0.236181, kc_distance=14.659574, actionability=0.0, actionability %0.000000, time=4.128324
+Converged at iteration 54
+ktcf, instance 119: validity=1.0, sparsity=70, sparsity %=0.351759, kc_distance=9.942857, actionability=0.0, actionability %0.000000, time=2.466049
+Converged at iteration 117
+ktcf, instance 120: validity=1.0, sparsity=50, sparsity %=0.251256, kc_distance=11.800000, actionability=0.0, actionability %0.000000, time=5.266385
+Converged at iteration 125
+ktcf, instance 121: validity=1.0, sparsity=49, sparsity %=0.246231, kc_distance=14.877551, actionability=0.0, actionability %0.000000, time=5.627955
+Converged at iteration 156
+ktcf, instance 122: validity=1.0, sparsity=61, sparsity %=0.306533, kc_distance=7.885246, actionability=0.0, actionability %0.000000, time=7.020081
+ktcf, instance 123: validity=1.0, sparsity=64, sparsity %=0.321608, kc_distance=11.781250, actionability=0.0, actionability %0.000000, time=9.788593
+Converged at iteration 121
+ktcf, instance 124: validity=1.0, sparsity=58, sparsity %=0.291457, kc_distance=12.051724, actionability=0.0, actionability %0.000000, time=5.666120
+Converged at iteration 176
+ktcf, instance 125: validity=1.0, sparsity=42, sparsity %=0.211055, kc_distance=16.142857, actionability=0.0, actionability %0.000000, time=8.215734
+Converged at iteration 181
+ktcf, instance 126: validity=1.0, sparsity=52, sparsity %=0.261307, kc_distance=9.192308, actionability=0.0, actionability %0.000000, time=8.269685
+Converged at iteration 189
+ktcf, instance 127: validity=1.0, sparsity=53, sparsity %=0.266332, kc_distance=17.037736, actionability=0.0, actionability %0.000000, time=8.673396
+Converged at iteration 195
+ktcf, instance 128: validity=1.0, sparsity=54, sparsity %=0.271357, kc_distance=13.981481, actionability=0.0, actionability %0.000000, time=8.986668
+Converged at iteration 163
+ktcf, instance 129: validity=1.0, sparsity=47, sparsity %=0.236181, kc_distance=20.638298, actionability=0.0, actionability %0.000000, time=7.466402
+Converged at iteration 87
+ktcf, instance 130: validity=1.0, sparsity=57, sparsity %=0.286432, kc_distance=11.403509, actionability=0.0, actionability %0.000000, time=4.319775
+Converged at iteration 120
+ktcf, instance 131: validity=1.0, sparsity=53, sparsity %=0.266332, kc_distance=12.528302, actionability=0.0, actionability %0.000000, time=5.748729
+Converged at iteration 63
+ktcf, instance 132: validity=1.0, sparsity=37, sparsity %=0.185930, kc_distance=11.027027, actionability=0.0, actionability %0.000000, time=2.887447
+Converged at iteration 155
+ktcf, instance 133: validity=1.0, sparsity=61, sparsity %=0.306533, kc_distance=12.163934, actionability=0.0, actionability %0.000000, time=7.468461
+Converged at iteration 87
+ktcf, instance 134: validity=1.0, sparsity=42, sparsity %=0.211055, kc_distance=12.380952, actionability=0.0, actionability %0.000000, time=4.066895
+ktcf, instance 135: validity=1.0, sparsity=70, sparsity %=0.351759, kc_distance=11.200000, actionability=0.0, actionability %0.000000, time=8.917178
+Converged at iteration 134
+ktcf, instance 136: validity=1.0, sparsity=56, sparsity %=0.281407, kc_distance=9.375000, actionability=0.0, actionability %0.000000, time=5.903308
+Converged at iteration 179
+ktcf, instance 137: validity=1.0, sparsity=55, sparsity %=0.276382, kc_distance=10.454545, actionability=0.0, actionability %0.000000, time=7.832126
+Converged at iteration 160
+ktcf, instance 138: validity=1.0, sparsity=44, sparsity %=0.221106, kc_distance=13.272727, actionability=0.0, actionability %0.000000, time=7.168766
+Converged at iteration 103
+ktcf, instance 139: validity=1.0, sparsity=40, sparsity %=0.201005, kc_distance=13.100000, actionability=0.0, actionability %0.000000, time=4.555587
+ktcf, instance 140: validity=1.0, sparsity=55, sparsity %=0.276382, kc_distance=12.000000, actionability=0.0, actionability %0.000000, time=8.796012
+Converged at iteration 98
+ktcf, instance 141: validity=1.0, sparsity=60, sparsity %=0.301508, kc_distance=16.183333, actionability=0.0, actionability %0.000000, time=4.342273
+Converged at iteration 177
+ktcf, instance 142: validity=1.0, sparsity=44, sparsity %=0.221106, kc_distance=14.818182, actionability=0.0, actionability %0.000000, time=8.005706
+Converged at iteration 156
+ktcf, instance 143: validity=1.0, sparsity=50, sparsity %=0.251256, kc_distance=14.320000, actionability=0.0, actionability %0.000000, time=6.936535
+Converged at iteration 125
+ktcf, instance 144: validity=1.0, sparsity=39, sparsity %=0.195980, kc_distance=15.769231, actionability=0.0, actionability %0.000000, time=5.582051
+Converged at iteration 119
+ktcf, instance 145: validity=1.0, sparsity=41, sparsity %=0.206030, kc_distance=16.146341, actionability=0.0, actionability %0.000000, time=5.262947
+Converged at iteration 180
+ktcf, instance 146: validity=1.0, sparsity=75, sparsity %=0.376884, kc_distance=9.880000, actionability=0.0, actionability %0.000000, time=8.058240
+Converged at iteration 145
+ktcf, instance 147: validity=1.0, sparsity=49, sparsity %=0.246231, kc_distance=11.714286, actionability=0.0, actionability %0.000000, time=7.161965
+Converged at iteration 130
+ktcf, instance 148: validity=1.0, sparsity=75, sparsity %=0.376884, kc_distance=10.253333, actionability=0.0, actionability %0.000000, time=6.200152
+Converged at iteration 166
+ktcf, instance 149: validity=1.0, sparsity=46, sparsity %=0.231156, kc_distance=8.086957, actionability=0.0, actionability %0.000000, time=7.553400
+Converged at iteration 139
+ktcf, instance 150: validity=1.0, sparsity=45, sparsity %=0.226131, kc_distance=11.733333, actionability=0.0, actionability %0.000000, time=6.525360
+Converged at iteration 29
+ktcf, instance 151: validity=1.0, sparsity=52, sparsity %=0.261307, kc_distance=8.711538, actionability=0.0, actionability %0.000000, time=1.338105
+Converged at iteration 132
+ktcf, instance 152: validity=1.0, sparsity=48, sparsity %=0.241206, kc_distance=11.250000, actionability=0.0, actionability %0.000000, time=6.316653
+Converged at iteration 152
+ktcf, instance 153: validity=1.0, sparsity=76, sparsity %=0.381910, kc_distance=15.250000, actionability=0.0, actionability %0.000000, time=7.073768
+Converged at iteration 86
+ktcf, instance 154: validity=1.0, sparsity=47, sparsity %=0.236181, kc_distance=14.468085, actionability=0.0, actionability %0.000000, time=3.952318
+Converged at iteration 75
+ktcf, instance 155: validity=1.0, sparsity=54, sparsity %=0.271357, kc_distance=13.962963, actionability=0.0, actionability %0.000000, time=3.495229
+Converged at iteration 194
+ktcf, instance 156: validity=1.0, sparsity=50, sparsity %=0.251256, kc_distance=12.200000, actionability=0.0, actionability %0.000000, time=8.820079
+Converged at iteration 83
+ktcf, instance 157: validity=1.0, sparsity=65, sparsity %=0.326633, kc_distance=10.661538, actionability=0.0, actionability %0.000000, time=3.793812
+Converged at iteration 156
+ktcf, instance 158: validity=1.0, sparsity=53, sparsity %=0.266332, kc_distance=11.075472, actionability=0.0, actionability %0.000000, time=7.204507
+Converged at iteration 114
+ktcf, instance 159: validity=1.0, sparsity=41, sparsity %=0.206030, kc_distance=14.170732, actionability=0.0, actionability %0.000000, time=5.228761
+Converged at iteration 49
+ktcf, instance 160: validity=1.0, sparsity=48, sparsity %=0.241206, kc_distance=14.145833, actionability=0.0, actionability %0.000000, time=2.275575
+Converged at iteration 140
+ktcf, instance 161: validity=1.0, sparsity=46, sparsity %=0.231156, kc_distance=14.021739, actionability=0.0, actionability %0.000000, time=6.410802
+Converged at iteration 86
+ktcf, instance 162: validity=1.0, sparsity=51, sparsity %=0.256281, kc_distance=11.627451, actionability=0.0, actionability %0.000000, time=4.079347
+Converged at iteration 103
+ktcf, instance 163: validity=1.0, sparsity=44, sparsity %=0.221106, kc_distance=18.409091, actionability=0.0, actionability %0.000000, time=4.813193
+Converged at iteration 103
+ktcf, instance 164: validity=1.0, sparsity=44, sparsity %=0.221106, kc_distance=14.863636, actionability=0.0, actionability %0.000000, time=4.848500
+Converged at iteration 161
+ktcf, instance 165: validity=1.0, sparsity=47, sparsity %=0.236181, kc_distance=11.617021, actionability=0.0, actionability %0.000000, time=7.378609
+Converged at iteration 140
+ktcf, instance 166: validity=1.0, sparsity=65, sparsity %=0.326633, kc_distance=8.430769, actionability=0.0, actionability %0.000000, time=6.596472
+Converged at iteration 188
+ktcf, instance 167: validity=1.0, sparsity=47, sparsity %=0.236181, kc_distance=10.212766, actionability=0.0, actionability %0.000000, time=8.436934
+Converged at iteration 34
+ktcf, instance 168: validity=1.0, sparsity=42, sparsity %=0.211055, kc_distance=11.190476, actionability=0.0, actionability %0.000000, time=1.638530
+Converged at iteration 142
+ktcf, instance 169: validity=1.0, sparsity=47, sparsity %=0.236181, kc_distance=11.063830, actionability=0.0, actionability %0.000000, time=6.692342
+Converged at iteration 101
+ktcf, instance 170: validity=1.0, sparsity=48, sparsity %=0.241206, kc_distance=13.895833, actionability=0.0, actionability %0.000000, time=4.594465
+Converged at iteration 53
+ktcf, instance 171: validity=1.0, sparsity=56, sparsity %=0.281407, kc_distance=15.339286, actionability=0.0, actionability %0.000000, time=2.453768
+Converged at iteration 58
+ktcf, instance 172: validity=1.0, sparsity=48, sparsity %=0.241206, kc_distance=17.125000, actionability=0.0, actionability %0.000000, time=2.754771
+Converged at iteration 120
+ktcf, instance 173: validity=1.0, sparsity=53, sparsity %=0.266332, kc_distance=9.849057, actionability=0.0, actionability %0.000000, time=5.577090
+Converged at iteration 164
+ktcf, instance 174: validity=1.0, sparsity=46, sparsity %=0.231156, kc_distance=11.826087, actionability=0.0, actionability %0.000000, time=7.619175
+Converged at iteration 77
+ktcf, instance 175: validity=1.0, sparsity=53, sparsity %=0.266332, kc_distance=11.849057, actionability=0.0, actionability %0.000000, time=3.612604
+Converged at iteration 164
+ktcf, instance 176: validity=1.0, sparsity=56, sparsity %=0.281407, kc_distance=11.035714, actionability=0.0, actionability %0.000000, time=7.248718
+Converged at iteration 174
+ktcf, instance 177: validity=1.0, sparsity=37, sparsity %=0.185930, kc_distance=16.891892, actionability=0.0, actionability %0.000000, time=7.854450
+ktcf, instance 178: validity=1.0, sparsity=87, sparsity %=0.437186, kc_distance=9.402299, actionability=0.0, actionability %0.000000, time=9.041692
+Converged at iteration 97
+ktcf, instance 179: validity=1.0, sparsity=48, sparsity %=0.241206, kc_distance=18.854167, actionability=0.0, actionability %0.000000, time=4.446169
+Converged at iteration 160
+ktcf, instance 180: validity=1.0, sparsity=52, sparsity %=0.261307, kc_distance=12.307692, actionability=0.0, actionability %0.000000, time=7.627665
+Converged at iteration 150
+ktcf, instance 181: validity=1.0, sparsity=52, sparsity %=0.261307, kc_distance=12.019231, actionability=0.0, actionability %0.000000, time=6.938021
+Converged at iteration 184
+ktcf, instance 182: validity=1.0, sparsity=49, sparsity %=0.246231, kc_distance=12.693878, actionability=0.0, actionability %0.000000, time=8.401150
+Converged at iteration 183
+ktcf, instance 183: validity=1.0, sparsity=56, sparsity %=0.281407, kc_distance=11.803571, actionability=0.0, actionability %0.000000, time=8.211395
+Converged at iteration 171
+ktcf, instance 184: validity=1.0, sparsity=61, sparsity %=0.306533, kc_distance=13.590164, actionability=0.0, actionability %0.000000, time=7.515565
+Converged at iteration 159
+ktcf, instance 185: validity=1.0, sparsity=50, sparsity %=0.251256, kc_distance=16.560000, actionability=0.0, actionability %0.000000, time=7.108059
+Converged at iteration 161
+ktcf, instance 186: validity=1.0, sparsity=63, sparsity %=0.316583, kc_distance=10.190476, actionability=0.0, actionability %0.000000, time=7.401852
+Converged at iteration 104
+ktcf, instance 187: validity=1.0, sparsity=52, sparsity %=0.261307, kc_distance=8.384615, actionability=0.0, actionability %0.000000, time=4.946143
+Converged at iteration 129
+ktcf, instance 188: validity=1.0, sparsity=43, sparsity %=0.216080, kc_distance=16.953488, actionability=0.0, actionability %0.000000, time=6.020984
+Converged at iteration 189
+ktcf, instance 189: validity=1.0, sparsity=52, sparsity %=0.261307, kc_distance=13.346154, actionability=0.0, actionability %0.000000, time=8.918632
+Converged at iteration 125
+ktcf, instance 190: validity=1.0, sparsity=44, sparsity %=0.221106, kc_distance=12.750000, actionability=0.0, actionability %0.000000, time=5.915162
+Converged at iteration 98
+ktcf, instance 191: validity=1.0, sparsity=58, sparsity %=0.291457, kc_distance=11.155172, actionability=0.0, actionability %0.000000, time=4.540517
+Converged at iteration 33
+ktcf, instance 192: validity=1.0, sparsity=63, sparsity %=0.316583, kc_distance=8.492063, actionability=0.0, actionability %0.000000, time=1.498762
+Converged at iteration 150
+ktcf, instance 193: validity=1.0, sparsity=63, sparsity %=0.316583, kc_distance=9.619048, actionability=0.0, actionability %0.000000, time=7.286424
+Converged at iteration 158
+ktcf, instance 194: validity=1.0, sparsity=46, sparsity %=0.231156, kc_distance=12.608696, actionability=0.0, actionability %0.000000, time=7.384769
+Converged at iteration 174
+ktcf, instance 195: validity=1.0, sparsity=70, sparsity %=0.351759, kc_distance=16.600000, actionability=0.0, actionability %0.000000, time=7.792180
+Converged at iteration 186
+ktcf, instance 196: validity=1.0, sparsity=68, sparsity %=0.341709, kc_distance=12.058824, actionability=0.0, actionability %0.000000, time=8.669830
+Converged at iteration 28
+ktcf, instance 197: validity=1.0, sparsity=63, sparsity %=0.316583, kc_distance=15.809524, actionability=0.0, actionability %0.000000, time=1.320428
+Converged at iteration 109
+ktcf, instance 198: validity=1.0, sparsity=53, sparsity %=0.266332, kc_distance=12.811321, actionability=0.0, actionability %0.000000, time=5.116805
+Converged at iteration 97
+ktcf, instance 199: validity=1.0, sparsity=46, sparsity %=0.231156, kc_distance=10.913043, actionability=0.0, actionability %0.000000, time=4.327256

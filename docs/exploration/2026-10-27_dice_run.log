@@ -1,0 +1,378 @@
+Namespace(alg='dice', init_scheme=2, lr=0.01, max_iter=200, init_noise_std=0.1, init_lambda_convex=0.5, init_temp=0.1, lambda_pred=1.0, lambda_prox=0.1, lambda_kc=0.001, lambda_div=0.001, kc_mask=10, early_stopping_eta=0.0001, save_file_name='table_1_results.csv')
+iteration 197, early stopping due to all diverse explanation predictions tensor([0.8950, 0.6930, 0.5501]) are over 0.5.
+dice, instance 0: validity=1.0, sparsity=94.33333587646484, sparsity %=0.474037, kc_distance=10.911321, actionability=25.33333396911621, actionability %0.268551, time=8.948542
+iteration 4, early stopping due to all diverse explanation predictions tensor([0.7492, 0.6433, 0.5510]) are over 0.5.
+dice, instance 1: validity=1.0, sparsity=93.66666412353516, sparsity %=0.470687, kc_distance=8.915255, actionability=48.0, actionability %0.512456, time=0.220249
+iteration 156, early stopping due to all diverse explanation predictions tensor([0.9093, 0.5243, 0.5771]) are over 0.5.
+dice, instance 2: validity=1.0, sparsity=90.33333587646484, sparsity %=0.453936, kc_distance=10.089165, actionability=14.666666984558105, actionability %0.162362, time=7.118254
+iteration 123, early stopping due to all diverse explanation predictions tensor([0.5967, 0.5390, 0.6575]) are over 0.5.
+dice, instance 3: validity=1.0, sparsity=76.0, sparsity %=0.381910, kc_distance=8.740760, actionability=20.0, actionability %0.263158, time=5.597345
+dice, instance 4: validity=0.0, sparsity=83.0, sparsity %=0.417085, kc_distance=12.150888, actionability=20.33333396911621, actionability %0.244980, time=8.918776
+iteration 113, early stopping due to all diverse explanation predictions tensor([0.5311, 0.6217, 0.5222]) are over 0.5.
+dice, instance 5: validity=1.0, sparsity=79.0, sparsity %=0.396985, kc_distance=10.748278, actionability=25.66666603088379, actionability %0.324895, time=5.159410
+iteration 153, early stopping due to all diverse explanation predictions tensor([0.8983, 0.5678, 0.5014]) are over 0.5.
+dice, instance 6: validity=1.0, sparsity=77.0, sparsity %=0.386935, kc_distance=7.111649, actionability=34.0, actionability %0.441558, time=6.805055
+dice, instance 7: validity=0.0, sparsity=71.0, sparsity %=0.356784, kc_distance=12.681932, actionability=18.66666603088379, actionability %0.262911, time=8.747362
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.6460, 0.7628, 0.5396]) are over 0.5.
+dice, instance 8: validity=1.0, sparsity=53.0, sparsity %=0.266332, kc_distance=8.801217, actionability=47.66666793823242, actionability %0.899371, time=0.043151
+iteration 159, early stopping due to all diverse explanation predictions tensor([0.5381, 0.5134, 0.8950]) are over 0.5.
+dice, instance 9: validity=1.0, sparsity=71.33333587646484, sparsity %=0.358459, kc_distance=12.949964, actionability=27.33333396911621, actionability %0.383178, time=6.935949
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.5035, 0.5596, 0.6600]) are over 0.5.
+dice, instance 10: validity=1.0, sparsity=56.66666793823242, sparsity %=0.284757, kc_distance=11.658936, actionability=41.33333206176758, actionability %0.729412, time=0.043457
+iteration 116, early stopping due to all diverse explanation predictions tensor([0.5065, 0.8505, 0.7965]) are over 0.5.
+dice, instance 11: validity=1.0, sparsity=99.0, sparsity %=0.497487, kc_distance=9.330493, actionability=31.0, actionability %0.313131, time=5.169021
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.5992, 0.6538, 0.6347]) are over 0.5.
+dice, instance 12: validity=1.0, sparsity=58.66666793823242, sparsity %=0.294807, kc_distance=11.114497, actionability=43.33333206176758, actionability %0.738636, time=0.043471
+iteration 2, early stopping due to all diverse explanation predictions tensor([0.8316, 0.6630, 0.7571]) are over 0.5.
+dice, instance 13: validity=1.0, sparsity=80.33333587646484, sparsity %=0.403685, kc_distance=12.720724, actionability=49.33333206176758, actionability %0.614108, time=0.132089
+iteration 40, early stopping due to all diverse explanation predictions tensor([0.5550, 0.7191, 0.5170]) are over 0.5.
+dice, instance 14: validity=1.0, sparsity=83.0, sparsity %=0.417085, kc_distance=13.248858, actionability=45.0, actionability %0.542169, time=1.816991
+iteration 84, early stopping due to all diverse explanation predictions tensor([0.5006, 0.5149, 0.8390]) are over 0.5.
+dice, instance 15: validity=1.0, sparsity=79.0, sparsity %=0.396985, kc_distance=10.556805, actionability=46.66666793823242, actionability %0.590717, time=3.785044
+iteration 63, early stopping due to all diverse explanation predictions tensor([0.6363, 0.5627, 0.5208]) are over 0.5.
+dice, instance 16: validity=1.0, sparsity=66.0, sparsity %=0.331658, kc_distance=10.330241, actionability=28.33333396911621, actionability %0.429293, time=2.822070
+iteration 161, early stopping due to all diverse explanation predictions tensor([0.5090, 0.6455, 0.5263]) are over 0.5.
+dice, instance 17: validity=1.0, sparsity=68.66666412353516, sparsity %=0.345059, kc_distance=12.186596, actionability=40.33333206176758, actionability %0.587379, time=7.170092
+iteration 128, early stopping due to all diverse explanation predictions tensor([0.7258, 0.5153, 0.8657]) are over 0.5.
+dice, instance 18: validity=1.0, sparsity=105.66666412353516, sparsity %=0.530988, kc_distance=8.566398, actionability=18.0, actionability %0.170347, time=5.583619
+iteration 152, early stopping due to all diverse explanation predictions tensor([0.8792, 0.7846, 0.5140]) are over 0.5.
+dice, instance 19: validity=1.0, sparsity=92.0, sparsity %=0.462312, kc_distance=13.224086, actionability=26.0, actionability %0.282609, time=6.621922
+dice, instance 20: validity=0.0, sparsity=73.66666412353516, sparsity %=0.370184, kc_distance=11.098073, actionability=8.666666984558105, actionability %0.117647, time=8.872176
+iteration 61, early stopping due to all diverse explanation predictions tensor([0.6489, 0.5129, 0.5107]) are over 0.5.
+dice, instance 21: validity=1.0, sparsity=104.0, sparsity %=0.522613, kc_distance=7.622652, actionability=23.33333396911621, actionability %0.224359, time=2.729274
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.6926, 0.8639, 0.5484]) are over 0.5.
+dice, instance 22: validity=1.0, sparsity=56.0, sparsity %=0.281407, kc_distance=11.777374, actionability=45.33333206176758, actionability %0.809524, time=0.043236
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.8740, 0.5501, 0.7527]) are over 0.5.
+dice, instance 23: validity=1.0, sparsity=52.0, sparsity %=0.261307, kc_distance=10.145535, actionability=49.33333206176758, actionability %0.948718, time=0.045201
+iteration 159, early stopping due to all diverse explanation predictions tensor([0.6370, 0.8064, 0.5132]) are over 0.5.
+dice, instance 24: validity=1.0, sparsity=62.66666793823242, sparsity %=0.314908, kc_distance=9.864947, actionability=23.66666603088379, actionability %0.377660, time=7.070304
+iteration 91, early stopping due to all diverse explanation predictions tensor([0.6794, 0.7586, 0.5270]) are over 0.5.
+dice, instance 25: validity=1.0, sparsity=74.33333587646484, sparsity %=0.373534, kc_distance=10.223837, actionability=36.66666793823242, actionability %0.493274, time=4.062847
+iteration 69, early stopping due to all diverse explanation predictions tensor([0.5284, 0.6129, 0.5355]) are over 0.5.
+dice, instance 26: validity=1.0, sparsity=82.33333587646484, sparsity %=0.413735, kc_distance=12.937999, actionability=56.33333206176758, actionability %0.684210, time=3.088365
+iteration 87, early stopping due to all diverse explanation predictions tensor([0.5795, 0.6840, 0.5074]) are over 0.5.
+dice, instance 27: validity=1.0, sparsity=87.33333587646484, sparsity %=0.438861, kc_distance=10.170308, actionability=36.0, actionability %0.412214, time=3.891095
+iteration 167, early stopping due to all diverse explanation predictions tensor([0.7962, 0.5135, 0.8069]) are over 0.5.
+dice, instance 28: validity=1.0, sparsity=81.0, sparsity %=0.407035, kc_distance=14.669506, actionability=30.0, actionability %0.370370, time=7.398466
+dice, instance 29: validity=0.0, sparsity=84.0, sparsity %=0.422111, kc_distance=12.805500, actionability=18.33333396911621, actionability %0.218254, time=8.807720
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.9986, 0.9984, 0.9986]) are over 0.5.
+dice, instance 30: validity=1.0, sparsity=50.33333206176758, sparsity %=0.252931, kc_distance=8.593061, actionability=47.33333206176758, actionability %0.940397, time=0.043776
+dice, instance 31: validity=0.0, sparsity=74.33333587646484, sparsity %=0.373534, kc_distance=10.935495, actionability=22.66666603088379, actionability %0.304933, time=8.806946
+dice, instance 32: validity=0.0, sparsity=79.66666412353516, sparsity %=0.400335, kc_distance=11.607126, actionability=23.0, actionability %0.288703, time=8.713633
+iteration 127, early stopping due to all diverse explanation predictions tensor([0.5865, 0.5031, 0.5790]) are over 0.5.
+dice, instance 33: validity=1.0, sparsity=74.33333587646484, sparsity %=0.373534, kc_distance=13.599405, actionability=52.33333206176758, actionability %0.704036, time=5.676396
+dice, instance 34: validity=0.0, sparsity=75.33333587646484, sparsity %=0.378559, kc_distance=10.305352, actionability=47.66666793823242, actionability %0.632743, time=8.670312
+iteration 115, early stopping due to all diverse explanation predictions tensor([0.7704, 0.7195, 0.5064]) are over 0.5.
+dice, instance 35: validity=1.0, sparsity=78.66666412353516, sparsity %=0.395310, kc_distance=15.616637, actionability=41.66666793823242, actionability %0.529661, time=4.997999
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.6965, 0.7862, 0.7150]) are over 0.5.
+dice, instance 36: validity=1.0, sparsity=60.66666793823242, sparsity %=0.304858, kc_distance=12.552268, actionability=42.33333206176758, actionability %0.697802, time=0.042735
+iteration 186, early stopping due to all diverse explanation predictions tensor([0.8381, 0.8228, 0.5098]) are over 0.5.
+dice, instance 37: validity=1.0, sparsity=86.0, sparsity %=0.432161, kc_distance=8.457954, actionability=39.66666793823242, actionability %0.461240, time=8.137906
+iteration 106, early stopping due to all diverse explanation predictions tensor([0.5443, 0.6096, 0.5262]) are over 0.5.
+dice, instance 38: validity=1.0, sparsity=75.33333587646484, sparsity %=0.378559, kc_distance=11.962098, actionability=39.66666793823242, actionability %0.526549, time=4.735317
+iteration 119, early stopping due to all diverse explanation predictions tensor([0.5139, 0.8171, 0.5114]) are over 0.5.
+dice, instance 39: validity=1.0, sparsity=69.33333587646484, sparsity %=0.348409, kc_distance=14.532653, actionability=29.33333396911621, actionability %0.423077, time=5.313540
+iteration 63, early stopping due to all diverse explanation predictions tensor([0.5436, 0.5552, 0.7105]) are over 0.5.
+dice, instance 40: validity=1.0, sparsity=70.33333587646484, sparsity %=0.353434, kc_distance=9.630298, actionability=43.66666793823242, actionability %0.620853, time=2.829077
+iteration 117, early stopping due to all diverse explanation predictions tensor([0.5716, 0.6940, 0.6277]) are over 0.5.
+dice, instance 41: validity=1.0, sparsity=85.33333587646484, sparsity %=0.428811, kc_distance=9.713803, actionability=40.0, actionability %0.468750, time=5.228831
+dice, instance 42: validity=0.0, sparsity=66.66666412353516, sparsity %=0.335008, kc_distance=12.563659, actionability=18.0, actionability %0.270000, time=8.806937
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.6857, 0.5838, 0.6999]) are over 0.5.
+dice, instance 43: validity=1.0, sparsity=48.66666793823242, sparsity %=0.244556, kc_distance=10.717217, actionability=50.0, actionability %1.027397, time=0.043506
+iteration 91, early stopping due to all diverse explanation predictions tensor([0.5862, 0.5212, 0.5341]) are over 0.5.
+dice, instance 44: validity=1.0, sparsity=82.0, sparsity %=0.412060, kc_distance=8.748454, actionability=13.0, actionability %0.158537, time=4.010441
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.6440, 0.7048, 0.5510]) are over 0.5.
+dice, instance 45: validity=1.0, sparsity=48.33333206176758, sparsity %=0.242881, kc_distance=11.250543, actionability=44.66666793823242, actionability %0.924138, time=0.044045
+iteration 80, early stopping due to all diverse explanation predictions tensor([0.6715, 0.5006, 0.7046]) are over 0.5.
+dice, instance 46: validity=1.0, sparsity=88.0, sparsity %=0.442211, kc_distance=9.397475, actionability=48.0, actionability %0.545455, time=3.553089
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.7242, 0.7624, 0.5458]) are over 0.5.
+dice, instance 47: validity=1.0, sparsity=47.0, sparsity %=0.236181, kc_distance=11.015425, actionability=47.33333206176758, actionability %1.007092, time=0.043476
+iteration 147, early stopping due to all diverse explanation predictions tensor([0.9362, 0.5312, 0.5041]) are over 0.5.
+dice, instance 48: validity=1.0, sparsity=70.33333587646484, sparsity %=0.353434, kc_distance=14.666855, actionability=36.66666793823242, actionability %0.521327, time=6.458587
+iteration 104, early stopping due to all diverse explanation predictions tensor([0.5291, 0.6028, 0.5241]) are over 0.5.
+dice, instance 49: validity=1.0, sparsity=75.66666412353516, sparsity %=0.380234, kc_distance=11.754310, actionability=51.33333206176758, actionability %0.678414, time=4.635326
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.5747, 0.5789, 0.7372]) are over 0.5.
+dice, instance 50: validity=1.0, sparsity=53.33333206176758, sparsity %=0.268007, kc_distance=16.523224, actionability=44.0, actionability %0.825000, time=0.043989
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.7369, 0.6775, 0.5846]) are over 0.5.
+dice, instance 51: validity=1.0, sparsity=47.0, sparsity %=0.236181, kc_distance=9.221963, actionability=54.33333206176758, actionability %1.156028, time=0.043917
+dice, instance 52: validity=0.0, sparsity=72.66666412353516, sparsity %=0.365159, kc_distance=9.282257, actionability=34.66666793823242, actionability %0.477064, time=8.731180
+iteration 164, early stopping due to all diverse explanation predictions tensor([0.5057, 0.9078, 0.8947]) are over 0.5.
+dice, instance 53: validity=1.0, sparsity=80.33333587646484, sparsity %=0.403685, kc_distance=9.089996, actionability=45.66666793823242, actionability %0.568465, time=7.149599
+dice, instance 54: validity=0.0, sparsity=90.66666412353516, sparsity %=0.455611, kc_distance=10.137259, actionability=12.333333015441895, actionability %0.136029, time=8.733368
+iteration 137, early stopping due to all diverse explanation predictions tensor([0.5478, 0.6108, 0.7326]) are over 0.5.
+dice, instance 55: validity=1.0, sparsity=90.66666412353516, sparsity %=0.455611, kc_distance=8.196460, actionability=9.0, actionability %0.099265, time=5.985814
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.5439, 0.6988, 0.6504]) are over 0.5.
+dice, instance 56: validity=1.0, sparsity=49.0, sparsity %=0.246231, kc_distance=10.867885, actionability=49.33333206176758, actionability %1.006803, time=0.043495
+iteration 2, early stopping due to all diverse explanation predictions tensor([0.7803, 0.6547, 0.6909]) are over 0.5.
+dice, instance 57: validity=1.0, sparsity=83.33333587646484, sparsity %=0.418760, kc_distance=9.993102, actionability=45.0, actionability %0.540000, time=0.131708
+iteration 103, early stopping due to all diverse explanation predictions tensor([0.5293, 0.5578, 0.5217]) are over 0.5.
+dice, instance 58: validity=1.0, sparsity=111.0, sparsity %=0.557789, kc_distance=10.947551, actionability=13.333333015441895, actionability %0.120120, time=4.510905
+dice, instance 59: validity=0.0, sparsity=66.0, sparsity %=0.331658, kc_distance=9.483372, actionability=26.66666603088379, actionability %0.404040, time=8.799869
+iteration 111, early stopping due to all diverse explanation predictions tensor([0.6955, 0.5125, 0.5152]) are over 0.5.
+dice, instance 60: validity=1.0, sparsity=72.0, sparsity %=0.361809, kc_distance=9.239529, actionability=35.0, actionability %0.486111, time=4.959003
+iteration 108, early stopping due to all diverse explanation predictions tensor([0.7335, 0.6317, 0.5410]) are over 0.5.
+dice, instance 61: validity=1.0, sparsity=77.66666412353516, sparsity %=0.390285, kc_distance=9.526725, actionability=49.66666793823242, actionability %0.639485, time=4.780781
+iteration 106, early stopping due to all diverse explanation predictions tensor([0.6431, 0.5341, 0.5154]) are over 0.5.
+dice, instance 62: validity=1.0, sparsity=80.0, sparsity %=0.402010, kc_distance=12.045557, actionability=31.33333396911621, actionability %0.391667, time=4.639205
+iteration 122, early stopping due to all diverse explanation predictions tensor([0.6777, 0.6654, 0.5242]) are over 0.5.
+dice, instance 63: validity=1.0, sparsity=71.0, sparsity %=0.356784, kc_distance=11.473896, actionability=46.33333206176758, actionability %0.652582, time=5.337082
+iteration 97, early stopping due to all diverse explanation predictions tensor([0.5022, 0.5435, 0.6109]) are over 0.5.
+dice, instance 64: validity=1.0, sparsity=62.33333206176758, sparsity %=0.313233, kc_distance=12.277406, actionability=24.0, actionability %0.385027, time=4.302451
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.7279, 0.5538, 0.7824]) are over 0.5.
+dice, instance 65: validity=1.0, sparsity=66.0, sparsity %=0.331658, kc_distance=8.476988, actionability=37.66666793823242, actionability %0.570707, time=0.043732
+iteration 157, early stopping due to all diverse explanation predictions tensor([0.5872, 0.5142, 0.7252]) are over 0.5.
+dice, instance 66: validity=1.0, sparsity=83.66666412353516, sparsity %=0.420435, kc_distance=10.558447, actionability=23.33333396911621, actionability %0.278884, time=6.915441
+iteration 1, early stopping due to all diverse explanation predictions tensor([0.6182, 0.7196, 0.6562]) are over 0.5.
+dice, instance 67: validity=1.0, sparsity=59.66666793823242, sparsity %=0.299833, kc_distance=13.999601, actionability=39.0, actionability %0.653631, time=0.086626
+iteration 101, early stopping due to all diverse explanation predictions tensor([0.5206, 0.7035, 0.5367]) are over 0.5.
+dice, instance 68: validity=1.0, sparsity=75.0, sparsity %=0.376884, kc_distance=9.684802, actionability=28.33333396911621, actionability %0.377778, time=4.478144
+dice, instance 69: validity=0.0, sparsity=85.0, sparsity %=0.427136, kc_distance=7.828711, actionability=30.0, actionability %0.352941, time=8.838557
+iteration 165, early stopping due to all diverse explanation predictions tensor([0.5121, 0.9682, 0.6852]) are over 0.5.
+dice, instance 70: validity=1.0, sparsity=79.66666412353516, sparsity %=0.400335, kc_distance=11.552934, actionability=24.33333396911621, actionability %0.305439, time=7.282901
+iteration 105, early stopping due to all diverse explanation predictions tensor([0.6105, 0.5221, 0.7942]) are over 0.5.
+dice, instance 71: validity=1.0, sparsity=81.33333587646484, sparsity %=0.408710, kc_distance=11.099649, actionability=45.66666793823242, actionability %0.561475, time=4.631202
+iteration 127, early stopping due to all diverse explanation predictions tensor([0.6303, 0.5063, 0.5333]) are over 0.5.
+dice, instance 72: validity=1.0, sparsity=81.0, sparsity %=0.407035, kc_distance=14.433260, actionability=24.66666603088379, actionability %0.304527, time=5.639397
+iteration 151, early stopping due to all diverse explanation predictions tensor([0.5190, 0.5420, 0.5540]) are over 0.5.
+dice, instance 73: validity=1.0, sparsity=80.66666412353516, sparsity %=0.405360, kc_distance=10.949209, actionability=20.33333396911621, actionability %0.252066, time=6.700845
+dice, instance 74: validity=0.0, sparsity=83.66666412353516, sparsity %=0.420435, kc_distance=8.842720, actionability=17.66666603088379, actionability %0.211155, time=8.815167
+iteration 68, early stopping due to all diverse explanation predictions tensor([0.7038, 0.7533, 0.7199]) are over 0.5.
+dice, instance 75: validity=1.0, sparsity=70.66666412353516, sparsity %=0.355109, kc_distance=10.299000, actionability=36.66666793823242, actionability %0.518868, time=2.991454
+iteration 74, early stopping due to all diverse explanation predictions tensor([0.5687, 0.6150, 0.5557]) are over 0.5.
+dice, instance 76: validity=1.0, sparsity=92.66666412353516, sparsity %=0.465662, kc_distance=7.503180, actionability=33.0, actionability %0.356115, time=3.232434
+iteration 145, early stopping due to all diverse explanation predictions tensor([0.5369, 0.5007, 0.5846]) are over 0.5.
+dice, instance 77: validity=1.0, sparsity=81.0, sparsity %=0.407035, kc_distance=10.087218, actionability=32.0, actionability %0.395062, time=6.312065
+iteration 156, early stopping due to all diverse explanation predictions tensor([0.9622, 0.8408, 0.5027]) are over 0.5.
+dice, instance 78: validity=1.0, sparsity=69.0, sparsity %=0.346734, kc_distance=15.441298, actionability=33.0, actionability %0.478261, time=6.775897
+iteration 88, early stopping due to all diverse explanation predictions tensor([0.5358, 0.5619, 0.5411]) are over 0.5.
+dice, instance 79: validity=1.0, sparsity=73.0, sparsity %=0.366834, kc_distance=9.337498, actionability=14.666666984558105, actionability %0.200913, time=3.846831
+iteration 5, early stopping due to all diverse explanation predictions tensor([0.5084, 0.7062, 0.6164]) are over 0.5.
+dice, instance 80: validity=1.0, sparsity=77.0, sparsity %=0.386935, kc_distance=9.885407, actionability=51.66666793823242, actionability %0.670996, time=0.256867
+iteration 175, early stopping due to all diverse explanation predictions tensor([0.9283, 0.5112, 0.5073]) are over 0.5.
+dice, instance 81: validity=1.0, sparsity=78.66666412353516, sparsity %=0.395310, kc_distance=8.502376, actionability=24.33333396911621, actionability %0.309322, time=7.603354
+iteration 162, early stopping due to all diverse explanation predictions tensor([0.6506, 0.6761, 0.5251]) are over 0.5.
+dice, instance 82: validity=1.0, sparsity=70.0, sparsity %=0.351759, kc_distance=14.076285, actionability=36.66666793823242, actionability %0.523810, time=7.200566
+dice, instance 83: validity=0.0, sparsity=74.33333587646484, sparsity %=0.373534, kc_distance=10.864694, actionability=23.66666603088379, actionability %0.318386, time=8.890297
+iteration 153, early stopping due to all diverse explanation predictions tensor([0.5445, 0.7164, 0.5101]) are over 0.5.
+dice, instance 84: validity=1.0, sparsity=72.0, sparsity %=0.361809, kc_distance=11.157615, actionability=7.666666507720947, actionability %0.106481, time=6.769439
+iteration 17, early stopping due to all diverse explanation predictions tensor([0.5188, 0.6477, 0.5877]) are over 0.5.
+dice, instance 85: validity=1.0, sparsity=91.33333587646484, sparsity %=0.458961, kc_distance=8.469075, actionability=43.66666793823242, actionability %0.478102, time=0.795767
+iteration 68, early stopping due to all diverse explanation predictions tensor([0.6252, 0.5584, 0.6960]) are over 0.5.
+dice, instance 86: validity=1.0, sparsity=78.0, sparsity %=0.391960, kc_distance=10.469492, actionability=37.66666793823242, actionability %0.482906, time=3.047710
+iteration 102, early stopping due to all diverse explanation predictions tensor([0.8126, 0.5170, 0.8466]) are over 0.5.
+dice, instance 87: validity=1.0, sparsity=110.33333587646484, sparsity %=0.554439, kc_distance=8.971529, actionability=22.0, actionability %0.199396, time=4.493052
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.7613, 0.5138, 0.5927]) are over 0.5.
+dice, instance 88: validity=1.0, sparsity=48.66666793823242, sparsity %=0.244556, kc_distance=12.092222, actionability=46.66666793823242, actionability %0.958904, time=0.042970
+iteration 66, early stopping due to all diverse explanation predictions tensor([0.5343, 0.5712, 0.5286]) are over 0.5.
+dice, instance 89: validity=1.0, sparsity=80.0, sparsity %=0.402010, kc_distance=6.676748, actionability=50.0, actionability %0.625000, time=2.896157
+iteration 12, early stopping due to all diverse explanation predictions tensor([0.5697, 0.6432, 0.7250]) are over 0.5.
+dice, instance 90: validity=1.0, sparsity=82.0, sparsity %=0.412060, kc_distance=15.805080, actionability=44.0, actionability %0.536585, time=0.560145
+dice, instance 91: validity=0.0, sparsity=84.33333587646484, sparsity %=0.423786, kc_distance=13.516563, actionability=6.666666507720947, actionability %0.079051, time=8.821704
+dice, instance 92: validity=0.0, sparsity=81.0, sparsity %=0.407035, kc_distance=10.989350, actionability=18.66666603088379, actionability %0.230453, time=8.755749
+iteration 123, early stopping due to all diverse explanation predictions tensor([0.8056, 0.5422, 0.5489]) are over 0.5.
+dice, instance 93: validity=1.0, sparsity=63.0, sparsity %=0.316583, kc_distance=16.917453, actionability=37.66666793823242, actionability %0.597884, time=5.364515
+iteration 151, early stopping due to all diverse explanation predictions tensor([0.5238, 0.6885, 0.9437]) are over 0.5.
+dice, instance 94: validity=1.0, sparsity=90.66666412353516, sparsity %=0.455611, kc_distance=12.310155, actionability=30.66666603088379, actionability %0.338235, time=6.672054
+dice, instance 95: validity=0.0, sparsity=89.0, sparsity %=0.447236, kc_distance=9.175607, actionability=16.0, actionability %0.179775, time=8.807820
+iteration 170, early stopping due to all diverse explanation predictions tensor([0.8336, 0.5850, 0.5282]) are over 0.5.
+dice, instance 96: validity=1.0, sparsity=78.0, sparsity %=0.391960, kc_distance=6.708175, actionability=36.66666793823242, actionability %0.470085, time=7.485645
+iteration 182, early stopping due to all diverse explanation predictions tensor([0.5082, 0.9135, 0.9407]) are over 0.5.
+dice, instance 97: validity=1.0, sparsity=77.66666412353516, sparsity %=0.390285, kc_distance=9.401994, actionability=35.0, actionability %0.450644, time=8.046795
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.9112, 0.9060, 0.8252]) are over 0.5.
+dice, instance 98: validity=1.0, sparsity=50.33333206176758, sparsity %=0.252931, kc_distance=14.319697, actionability=56.66666793823242, actionability %1.125828, time=0.044094
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.9336, 0.9247, 0.9301]) are over 0.5.
+dice, instance 99: validity=1.0, sparsity=52.0, sparsity %=0.261307, kc_distance=14.806686, actionability=56.33333206176758, actionability %1.083333, time=0.044320
+iteration 141, early stopping due to all diverse explanation predictions tensor([0.6194, 0.5756, 0.9963]) are over 0.5.
+dice, instance 100: validity=1.0, sparsity=99.33333587646484, sparsity %=0.499162, kc_distance=8.445699, actionability=33.33333206176758, actionability %0.335570, time=6.238574
+iteration 80, early stopping due to all diverse explanation predictions tensor([0.5373, 0.6022, 0.6258]) are over 0.5.
+dice, instance 101: validity=1.0, sparsity=63.33333206176758, sparsity %=0.318258, kc_distance=13.025176, actionability=44.0, actionability %0.694737, time=3.581610
+iteration 161, early stopping due to all diverse explanation predictions tensor([0.5405, 0.5010, 0.8305]) are over 0.5.
+dice, instance 102: validity=1.0, sparsity=71.0, sparsity %=0.356784, kc_distance=13.019618, actionability=33.0, actionability %0.464789, time=7.133037
+iteration 53, early stopping due to all diverse explanation predictions tensor([0.5401, 0.5801, 0.5159]) are over 0.5.
+dice, instance 103: validity=1.0, sparsity=92.33333587646484, sparsity %=0.463987, kc_distance=8.071037, actionability=28.33333396911621, actionability %0.306859, time=2.342294
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.6056, 0.5790, 0.5004]) are over 0.5.
+dice, instance 104: validity=1.0, sparsity=78.0, sparsity %=0.391960, kc_distance=7.610830, actionability=24.66666603088379, actionability %0.316239, time=0.042663
+iteration 161, early stopping due to all diverse explanation predictions tensor([0.5468, 0.8558, 0.7787]) are over 0.5.
+dice, instance 105: validity=1.0, sparsity=89.66666412353516, sparsity %=0.450586, kc_distance=9.052188, actionability=25.66666603088379, actionability %0.286245, time=7.005419
+iteration 117, early stopping due to all diverse explanation predictions tensor([0.5005, 0.5227, 0.6432]) are over 0.5.
+dice, instance 106: validity=1.0, sparsity=63.33333206176758, sparsity %=0.318258, kc_distance=11.767702, actionability=29.0, actionability %0.457895, time=5.198880
+iteration 173, early stopping due to all diverse explanation predictions tensor([0.5156, 0.8605, 0.8082]) are over 0.5.
+dice, instance 107: validity=1.0, sparsity=77.66666412353516, sparsity %=0.390285, kc_distance=11.488077, actionability=22.33333396911621, actionability %0.287554, time=7.547399
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.6481, 0.5665, 0.6841]) are over 0.5.
+dice, instance 108: validity=1.0, sparsity=61.0, sparsity %=0.306533, kc_distance=10.043991, actionability=38.33333206176758, actionability %0.628415, time=0.043041
+dice, instance 109: validity=0.0, sparsity=77.0, sparsity %=0.386935, kc_distance=10.342500, actionability=31.0, actionability %0.402597, time=8.702820
+iteration 19, early stopping due to all diverse explanation predictions tensor([0.5462, 0.7472, 0.5370]) are over 0.5.
+dice, instance 110: validity=1.0, sparsity=78.0, sparsity %=0.391960, kc_distance=15.361156, actionability=44.66666793823242, actionability %0.572650, time=0.883253
+iteration 119, early stopping due to all diverse explanation predictions tensor([0.6647, 0.6974, 0.5127]) are over 0.5.
+dice, instance 111: validity=1.0, sparsity=88.33333587646484, sparsity %=0.443886, kc_distance=10.630625, actionability=30.66666603088379, actionability %0.347170, time=5.211663
+iteration 1, early stopping due to all diverse explanation predictions tensor([0.6973, 0.7401, 0.5830]) are over 0.5.
+dice, instance 112: validity=1.0, sparsity=57.66666793823242, sparsity %=0.289782, kc_distance=13.622496, actionability=39.33333206176758, actionability %0.682081, time=0.088512
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.7134, 0.6613, 0.7495]) are over 0.5.
+dice, instance 113: validity=1.0, sparsity=55.0, sparsity %=0.276382, kc_distance=11.379906, actionability=45.0, actionability %0.818182, time=0.043939
+iteration 102, early stopping due to all diverse explanation predictions tensor([0.6615, 0.6864, 0.5441]) are over 0.5.
+dice, instance 114: validity=1.0, sparsity=78.66666412353516, sparsity %=0.395310, kc_distance=7.492212, actionability=51.66666793823242, actionability %0.656780, time=4.512867
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.5020, 0.5622, 0.5873]) are over 0.5.
+dice, instance 115: validity=1.0, sparsity=48.66666793823242, sparsity %=0.244556, kc_distance=11.963310, actionability=53.66666793823242, actionability %1.102740, time=0.044231
+iteration 115, early stopping due to all diverse explanation predictions tensor([0.5113, 0.5357, 0.7089]) are over 0.5.
+dice, instance 116: validity=1.0, sparsity=76.66666412353516, sparsity %=0.385260, kc_distance=7.135687, actionability=47.33333206176758, actionability %0.617391, time=5.122501
+iteration 151, early stopping due to all diverse explanation predictions tensor([0.5766, 0.6707, 0.5683]) are over 0.5.
+dice, instance 117: validity=1.0, sparsity=76.33333587646484, sparsity %=0.383585, kc_distance=10.901834, actionability=37.66666793823242, actionability %0.493450, time=6.703488
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.6293, 0.7498, 0.7917]) are over 0.5.
+dice, instance 118: validity=1.0, sparsity=57.0, sparsity %=0.286432, kc_distance=13.941357, actionability=47.33333206176758, actionability %0.830409, time=0.045325
+iteration 66, early stopping due to all diverse explanation predictions tensor([0.5102, 0.5281, 0.5576]) are over 0.5.
+dice, instance 119: validity=1.0, sparsity=91.0, sparsity %=0.457286, kc_distance=9.803956, actionability=30.0, actionability %0.329670, time=3.043582
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.6083, 0.5776, 0.5939]) are over 0.5.
+dice, instance 120: validity=1.0, sparsity=52.0, sparsity %=0.261307, kc_distance=12.780978, actionability=46.33333206176758, actionability %0.891026, time=0.043777
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.6941, 0.6816, 0.5928]) are over 0.5.
+dice, instance 121: validity=1.0, sparsity=59.33333206176758, sparsity %=0.298157, kc_distance=14.020335, actionability=39.33333206176758, actionability %0.662921, time=0.044477
+dice, instance 122: validity=0.0, sparsity=85.66666412353516, sparsity %=0.430486, kc_distance=8.588760, actionability=8.0, actionability %0.093385, time=8.869423
+iteration 102, early stopping due to all diverse explanation predictions tensor([0.5639, 0.5727, 0.5145]) are over 0.5.
+dice, instance 123: validity=1.0, sparsity=88.33333587646484, sparsity %=0.443886, kc_distance=11.106687, actionability=25.66666603088379, actionability %0.290566, time=4.479896
+iteration 116, early stopping due to all diverse explanation predictions tensor([0.7206, 0.5197, 0.5423]) are over 0.5.
+dice, instance 124: validity=1.0, sparsity=80.66666412353516, sparsity %=0.405360, kc_distance=10.279460, actionability=33.0, actionability %0.409091, time=5.066108
+iteration 2, early stopping due to all diverse explanation predictions tensor([0.5494, 0.6018, 0.6636]) are over 0.5.
+dice, instance 125: validity=1.0, sparsity=73.33333587646484, sparsity %=0.368509, kc_distance=13.868958, actionability=49.0, actionability %0.668182, time=0.128766
+iteration 123, early stopping due to all diverse explanation predictions tensor([0.5268, 0.8326, 0.5132]) are over 0.5.
+dice, instance 126: validity=1.0, sparsity=86.66666412353516, sparsity %=0.435511, kc_distance=7.595010, actionability=47.33333206176758, actionability %0.546154, time=5.356098
+iteration 197, early stopping due to all diverse explanation predictions tensor([0.6895, 0.5061, 0.5135]) are over 0.5.
+dice, instance 127: validity=1.0, sparsity=82.0, sparsity %=0.412060, kc_distance=16.028057, actionability=8.0, actionability %0.097561, time=8.569787
+iteration 180, early stopping due to all diverse explanation predictions tensor([0.5028, 0.5056, 0.8051]) are over 0.5.
+dice, instance 128: validity=1.0, sparsity=74.0, sparsity %=0.371859, kc_distance=12.274508, actionability=18.66666603088379, actionability %0.252252, time=7.986424
+iteration 160, early stopping due to all diverse explanation predictions tensor([0.5655, 0.8158, 0.5081]) are over 0.5.
+dice, instance 129: validity=1.0, sparsity=76.66666412353516, sparsity %=0.385260, kc_distance=17.566321, actionability=39.66666793823242, actionability %0.517391, time=7.174405
+iteration 68, early stopping due to all diverse explanation predictions tensor([0.5221, 0.5180, 0.6554]) are over 0.5.
+dice, instance 130: validity=1.0, sparsity=84.33333587646484, sparsity %=0.423786, kc_distance=10.818341, actionability=46.0, actionability %0.545455, time=3.040789
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.9213, 0.8292, 0.8390]) are over 0.5.
+dice, instance 131: validity=1.0, sparsity=57.33333206176758, sparsity %=0.288107, kc_distance=11.134035, actionability=43.33333206176758, actionability %0.755814, time=0.044766
+iteration 124, early stopping due to all diverse explanation predictions tensor([0.7857, 0.5002, 0.5102]) are over 0.5.
+dice, instance 132: validity=1.0, sparsity=58.66666793823242, sparsity %=0.294807, kc_distance=9.624285, actionability=33.0, actionability %0.562500, time=5.471652
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.5061, 0.5587, 0.6586]) are over 0.5.
+dice, instance 133: validity=1.0, sparsity=59.0, sparsity %=0.296482, kc_distance=11.412154, actionability=41.66666793823242, actionability %0.706215, time=0.043663
+iteration 123, early stopping due to all diverse explanation predictions tensor([0.5106, 0.5735, 0.5905]) are over 0.5.
+dice, instance 134: validity=1.0, sparsity=72.0, sparsity %=0.361809, kc_distance=9.837514, actionability=42.66666793823242, actionability %0.592593, time=5.368779
+iteration 193, early stopping due to all diverse explanation predictions tensor([0.6585, 0.5025, 0.5846]) are over 0.5.
+dice, instance 135: validity=1.0, sparsity=94.66666412353516, sparsity %=0.475712, kc_distance=10.106732, actionability=23.66666603088379, actionability %0.250000, time=8.517890
+iteration 72, early stopping due to all diverse explanation predictions tensor([0.5137, 0.6532, 0.5054]) are over 0.5.
+dice, instance 136: validity=1.0, sparsity=75.66666412353516, sparsity %=0.380234, kc_distance=9.984394, actionability=47.33333206176758, actionability %0.625551, time=3.222862
+dice, instance 137: validity=0.0, sparsity=78.0, sparsity %=0.391960, kc_distance=9.329353, actionability=26.66666603088379, actionability %0.341880, time=8.812109
+iteration 186, early stopping due to all diverse explanation predictions tensor([0.5048, 0.9157, 0.8786]) are over 0.5.
+dice, instance 138: validity=1.0, sparsity=75.33333587646484, sparsity %=0.378559, kc_distance=12.239133, actionability=28.33333396911621, actionability %0.376106, time=8.261276
+iteration 97, early stopping due to all diverse explanation predictions tensor([0.5345, 0.6275, 0.5429]) are over 0.5.
+dice, instance 139: validity=1.0, sparsity=75.33333587646484, sparsity %=0.378559, kc_distance=12.017661, actionability=46.66666793823242, actionability %0.619469, time=4.366349
+iteration 93, early stopping due to all diverse explanation predictions tensor([0.5081, 0.5009, 0.5369]) are over 0.5.
+dice, instance 140: validity=1.0, sparsity=76.66666412353516, sparsity %=0.385260, kc_distance=10.435026, actionability=42.66666793823242, actionability %0.556522, time=4.147932
+iteration 115, early stopping due to all diverse explanation predictions tensor([0.6494, 0.6466, 0.5192]) are over 0.5.
+dice, instance 141: validity=1.0, sparsity=71.66666412353516, sparsity %=0.360134, kc_distance=16.245935, actionability=34.66666793823242, actionability %0.483721, time=5.061993
+iteration 165, early stopping due to all diverse explanation predictions tensor([0.5095, 0.6957, 0.8818]) are over 0.5.
+dice, instance 142: validity=1.0, sparsity=74.66666412353516, sparsity %=0.375209, kc_distance=12.233448, actionability=29.66666603088379, actionability %0.397321, time=7.272496
+iteration 146, early stopping due to all diverse explanation predictions tensor([0.5673, 0.5386, 0.5013]) are over 0.5.
+dice, instance 143: validity=1.0, sparsity=75.33333587646484, sparsity %=0.378559, kc_distance=13.411678, actionability=25.0, actionability %0.331858, time=6.356987
+iteration 9, early stopping due to all diverse explanation predictions tensor([0.5215, 0.5532, 0.5308]) are over 0.5.
+dice, instance 144: validity=1.0, sparsity=71.33333587646484, sparsity %=0.358459, kc_distance=15.626773, actionability=56.66666793823242, actionability %0.794393, time=0.432502
+iteration 173, early stopping due to all diverse explanation predictions tensor([0.8231, 0.5025, 0.6987]) are over 0.5.
+dice, instance 145: validity=1.0, sparsity=77.0, sparsity %=0.386935, kc_distance=12.586642, actionability=25.0, actionability %0.324675, time=7.541243
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.6581, 0.5420, 0.5725]) are over 0.5.
+dice, instance 146: validity=1.0, sparsity=75.66666412353516, sparsity %=0.380234, kc_distance=10.848539, actionability=23.33333396911621, actionability %0.308370, time=0.043350
+iteration 97, early stopping due to all diverse explanation predictions tensor([0.5747, 0.6713, 0.8730]) are over 0.5.
+dice, instance 147: validity=1.0, sparsity=70.0, sparsity %=0.351759, kc_distance=11.165185, actionability=50.66666793823242, actionability %0.723810, time=4.232634
+iteration 22, early stopping due to all diverse explanation predictions tensor([0.5985, 0.6054, 0.5963]) are over 0.5.
+dice, instance 148: validity=1.0, sparsity=117.0, sparsity %=0.587940, kc_distance=7.945759, actionability=24.33333396911621, actionability %0.207977, time=0.994030
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.5111, 0.5921, 0.6100]) are over 0.5.
+dice, instance 149: validity=1.0, sparsity=57.33333206176758, sparsity %=0.288107, kc_distance=10.055419, actionability=44.66666793823242, actionability %0.779070, time=0.042892
+iteration 64, early stopping due to all diverse explanation predictions tensor([0.5529, 0.8193, 0.5248]) are over 0.5.
+dice, instance 150: validity=1.0, sparsity=78.33333587646484, sparsity %=0.393635, kc_distance=9.179813, actionability=50.0, actionability %0.638298, time=2.808745
+iteration 26, early stopping due to all diverse explanation predictions tensor([0.5355, 0.6041, 0.7149]) are over 0.5.
+dice, instance 151: validity=1.0, sparsity=87.0, sparsity %=0.437186, kc_distance=7.480989, actionability=52.66666793823242, actionability %0.605364, time=1.166627
+iteration 155, early stopping due to all diverse explanation predictions tensor([0.9018, 0.5309, 0.9435]) are over 0.5.
+dice, instance 152: validity=1.0, sparsity=84.66666412353516, sparsity %=0.425461, kc_distance=10.559904, actionability=35.33333206176758, actionability %0.417323, time=6.787455
+iteration 119, early stopping due to all diverse explanation predictions tensor([0.5081, 0.5342, 0.5090]) are over 0.5.
+dice, instance 153: validity=1.0, sparsity=104.0, sparsity %=0.522613, kc_distance=13.794547, actionability=6.666666507720947, actionability %0.064103, time=5.322673
+iteration 99, early stopping due to all diverse explanation predictions tensor([0.6677, 0.5657, 0.5602]) are over 0.5.
+dice, instance 154: validity=1.0, sparsity=70.66666412353516, sparsity %=0.355109, kc_distance=13.509659, actionability=31.33333396911621, actionability %0.443396, time=4.386519
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.7324, 0.5205, 0.7735]) are over 0.5.
+dice, instance 155: validity=1.0, sparsity=46.66666793823242, sparsity %=0.234506, kc_distance=13.203515, actionability=50.33333206176758, actionability %1.078571, time=0.043782
+iteration 155, early stopping due to all diverse explanation predictions tensor([0.6465, 0.8183, 0.5083]) are over 0.5.
+dice, instance 156: validity=1.0, sparsity=75.33333587646484, sparsity %=0.378559, kc_distance=10.993157, actionability=41.66666793823242, actionability %0.553097, time=6.917333
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.7258, 0.5458, 0.6682]) are over 0.5.
+dice, instance 157: validity=1.0, sparsity=73.0, sparsity %=0.366834, kc_distance=10.628347, actionability=35.66666793823242, actionability %0.488584, time=0.043872
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.5461, 0.8168, 0.8015]) are over 0.5.
+dice, instance 158: validity=1.0, sparsity=47.33333206176758, sparsity %=0.237856, kc_distance=10.633740, actionability=46.33333206176758, actionability %0.978873, time=0.043574
+iteration 135, early stopping due to all diverse explanation predictions tensor([0.5259, 0.6879, 0.5803]) are over 0.5.
+dice, instance 159: validity=1.0, sparsity=62.66666793823242, sparsity %=0.314908, kc_distance=13.527083, actionability=28.33333396911621, actionability %0.452128, time=6.018985
+iteration 159, early stopping due to all diverse explanation predictions tensor([0.7947, 0.5433, 0.9378]) are over 0.5.
+dice, instance 160: validity=1.0, sparsity=64.0, sparsity %=0.321608, kc_distance=11.512759, actionability=32.0, actionability %0.500000, time=6.995192
+iteration 77, early stopping due to all diverse explanation predictions tensor([0.5213, 0.5027, 0.6166]) are over 0.5.
+dice, instance 161: validity=1.0, sparsity=80.66666412353516, sparsity %=0.405360, kc_distance=11.296164, actionability=43.66666793823242, actionability %0.541322, time=3.378111
+iteration 38, early stopping due to all diverse explanation predictions tensor([0.5383, 0.6203, 0.5101]) are over 0.5.
+dice, instance 162: validity=1.0, sparsity=88.33333587646484, sparsity %=0.443886, kc_distance=12.409721, actionability=45.33333206176758, actionability %0.513208, time=1.687109
+iteration 8, early stopping due to all diverse explanation predictions tensor([0.6184, 0.5493, 0.5059]) are over 0.5.
+dice, instance 163: validity=1.0, sparsity=56.0, sparsity %=0.281407, kc_distance=17.629612, actionability=51.33333206176758, actionability %0.916667, time=0.389512
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.8508, 0.6783, 0.7420]) are over 0.5.
+dice, instance 164: validity=1.0, sparsity=48.66666793823242, sparsity %=0.244556, kc_distance=13.162805, actionability=51.33333206176758, actionability %1.054794, time=0.042697
+iteration 128, early stopping due to all diverse explanation predictions tensor([0.5533, 0.5794, 0.5024]) are over 0.5.
+dice, instance 165: validity=1.0, sparsity=71.66666412353516, sparsity %=0.360134, kc_distance=9.901796, actionability=24.33333396911621, actionability %0.339535, time=5.567017
+iteration 53, early stopping due to all diverse explanation predictions tensor([0.5428, 0.5046, 0.5542]) are over 0.5.
+dice, instance 166: validity=1.0, sparsity=101.33333587646484, sparsity %=0.509213, kc_distance=7.147418, actionability=22.66666603088379, actionability %0.223684, time=2.339337
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.6090, 0.7318, 0.5993]) are over 0.5.
+dice, instance 167: validity=1.0, sparsity=50.33333206176758, sparsity %=0.252931, kc_distance=10.370163, actionability=50.66666793823242, actionability %1.006623, time=0.043150
+iteration 142, early stopping due to all diverse explanation predictions tensor([0.5004, 0.6347, 0.6165]) are over 0.5.
+dice, instance 168: validity=1.0, sparsity=74.33333587646484, sparsity %=0.373534, kc_distance=9.832786, actionability=33.0, actionability %0.443946, time=6.175504
+dice, instance 169: validity=0.0, sparsity=71.66666412353516, sparsity %=0.360134, kc_distance=10.914059, actionability=42.0, actionability %0.586047, time=8.689694
+iteration 151, early stopping due to all diverse explanation predictions tensor([0.5159, 0.5448, 0.9690]) are over 0.5.
+dice, instance 170: validity=1.0, sparsity=70.66666412353516, sparsity %=0.355109, kc_distance=13.452202, actionability=44.66666793823242, actionability %0.632076, time=6.735596
+iteration 122, early stopping due to all diverse explanation predictions tensor([0.9134, 0.5489, 0.8975]) are over 0.5.
+dice, instance 171: validity=1.0, sparsity=95.0, sparsity %=0.477387, kc_distance=13.868697, actionability=31.0, actionability %0.326316, time=5.427713
+iteration 75, early stopping due to all diverse explanation predictions tensor([0.6785, 0.5241, 0.7264]) are over 0.5.
+dice, instance 172: validity=1.0, sparsity=81.33333587646484, sparsity %=0.408710, kc_distance=13.107952, actionability=29.0, actionability %0.356557, time=3.359651
+iteration 94, early stopping due to all diverse explanation predictions tensor([0.6426, 0.5219, 0.6558]) are over 0.5.
+dice, instance 173: validity=1.0, sparsity=92.66666412353516, sparsity %=0.465662, kc_distance=6.833674, actionability=41.33333206176758, actionability %0.446043, time=4.121468
+iteration 67, early stopping due to all diverse explanation predictions tensor([0.5885, 0.6299, 0.5290]) are over 0.5.
+dice, instance 174: validity=1.0, sparsity=79.66666412353516, sparsity %=0.400335, kc_distance=10.995804, actionability=43.0, actionability %0.539749, time=2.937756
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.5554, 0.6991, 0.5947]) are over 0.5.
+dice, instance 175: validity=1.0, sparsity=54.0, sparsity %=0.271357, kc_distance=11.558248, actionability=46.33333206176758, actionability %0.858025, time=0.043377
+iteration 177, early stopping due to all diverse explanation predictions tensor([0.5639, 0.8055, 0.5157]) are over 0.5.
+dice, instance 176: validity=1.0, sparsity=75.66666412353516, sparsity %=0.380234, kc_distance=11.287449, actionability=21.33333396911621, actionability %0.281938, time=7.678978
+iteration 175, early stopping due to all diverse explanation predictions tensor([0.5018, 0.7715, 0.9309]) are over 0.5.
+dice, instance 177: validity=1.0, sparsity=74.0, sparsity %=0.371859, kc_distance=16.542226, actionability=46.66666793823242, actionability %0.630631, time=7.788642
+iteration 116, early stopping due to all diverse explanation predictions tensor([0.5035, 0.6143, 0.7693]) are over 0.5.
+dice, instance 178: validity=1.0, sparsity=114.0, sparsity %=0.572864, kc_distance=8.019228, actionability=20.0, actionability %0.175439, time=5.153682
+iteration 24, early stopping due to all diverse explanation predictions tensor([0.5104, 0.5285, 0.6994]) are over 0.5.
+dice, instance 179: validity=1.0, sparsity=63.33333206176758, sparsity %=0.318258, kc_distance=16.462995, actionability=51.0, actionability %0.805263, time=1.096340
+iteration 1, early stopping due to all diverse explanation predictions tensor([0.6762, 0.6631, 0.6458]) are over 0.5.
+dice, instance 180: validity=1.0, sparsity=51.33333206176758, sparsity %=0.257956, kc_distance=11.507101, actionability=46.66666793823242, actionability %0.909091, time=0.085639
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.5913, 0.5509, 0.5085]) are over 0.5.
+dice, instance 181: validity=1.0, sparsity=55.0, sparsity %=0.276382, kc_distance=11.205570, actionability=42.66666793823242, actionability %0.775758, time=0.044350
+iteration 106, early stopping due to all diverse explanation predictions tensor([0.8405, 0.5582, 0.5095]) are over 0.5.
+dice, instance 182: validity=1.0, sparsity=96.33333587646484, sparsity %=0.484087, kc_distance=8.805757, actionability=38.66666793823242, actionability %0.401384, time=4.642228
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.7785, 0.5100, 0.7381]) are over 0.5.
+dice, instance 183: validity=1.0, sparsity=49.33333206176758, sparsity %=0.247906, kc_distance=11.673102, actionability=49.0, actionability %0.993243, time=0.043324
+iteration 59, early stopping due to all diverse explanation predictions tensor([0.5859, 0.5282, 0.5141]) are over 0.5.
+dice, instance 184: validity=1.0, sparsity=90.33333587646484, sparsity %=0.453936, kc_distance=12.386895, actionability=33.0, actionability %0.365314, time=2.596886
+iteration 187, early stopping due to all diverse explanation predictions tensor([0.9712, 0.6306, 0.5070]) are over 0.5.
+dice, instance 185: validity=1.0, sparsity=71.33333587646484, sparsity %=0.358459, kc_distance=13.902335, actionability=53.0, actionability %0.742991, time=8.115269
+iteration 104, early stopping due to all diverse explanation predictions tensor([0.5912, 0.5240, 0.7380]) are over 0.5.
+dice, instance 186: validity=1.0, sparsity=91.33333587646484, sparsity %=0.458961, kc_distance=7.961025, actionability=37.33333206176758, actionability %0.408759, time=4.583734
+dice, instance 187: validity=0.0, sparsity=91.0, sparsity %=0.457286, kc_distance=7.220768, actionability=36.0, actionability %0.395604, time=8.788795
+iteration 185, early stopping due to all diverse explanation predictions tensor([0.7862, 0.5776, 0.5145]) are over 0.5.
+dice, instance 188: validity=1.0, sparsity=70.66666412353516, sparsity %=0.355109, kc_distance=12.089584, actionability=28.33333396911621, actionability %0.400943, time=8.174364
+iteration 2, early stopping due to all diverse explanation predictions tensor([0.6306, 0.5658, 0.5476]) are over 0.5.
+dice, instance 189: validity=1.0, sparsity=77.33333587646484, sparsity %=0.388610, kc_distance=11.433076, actionability=41.33333206176758, actionability %0.534483, time=0.131049
+iteration 119, early stopping due to all diverse explanation predictions tensor([0.5061, 0.8265, 0.5857]) are over 0.5.
+dice, instance 190: validity=1.0, sparsity=87.0, sparsity %=0.437186, kc_distance=8.819590, actionability=45.33333206176758, actionability %0.521073, time=5.252124
+dice, instance 191: validity=0.0, sparsity=69.66666412353516, sparsity %=0.350084, kc_distance=9.991087, actionability=4.666666507720947, actionability %0.066986, time=8.727259
+iteration 172, early stopping due to all diverse explanation predictions tensor([0.6712, 0.5096, 0.5326]) are over 0.5.
+dice, instance 192: validity=1.0, sparsity=87.66666412353516, sparsity %=0.440536, kc_distance=7.786893, actionability=25.33333396911621, actionability %0.288973, time=7.613337
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.5764, 0.7984, 0.7139]) are over 0.5.
+dice, instance 193: validity=1.0, sparsity=64.66666412353516, sparsity %=0.324958, kc_distance=9.986739, actionability=38.0, actionability %0.587629, time=0.043472
+iteration 100, early stopping due to all diverse explanation predictions tensor([0.7777, 0.5535, 0.5343]) are over 0.5.
+dice, instance 194: validity=1.0, sparsity=77.0, sparsity %=0.386935, kc_distance=10.917270, actionability=36.0, actionability %0.467532, time=4.408503
+iteration 161, early stopping due to all diverse explanation predictions tensor([0.6503, 0.5135, 0.6973]) are over 0.5.
+dice, instance 195: validity=1.0, sparsity=107.66666412353516, sparsity %=0.541039, kc_distance=14.095266, actionability=21.66666603088379, actionability %0.201238, time=7.059204
+iteration 43, early stopping due to all diverse explanation predictions tensor([0.5305, 0.5241, 0.5665]) are over 0.5.
+dice, instance 196: validity=1.0, sparsity=99.66666412353516, sparsity %=0.500838, kc_distance=9.611228, actionability=32.66666793823242, actionability %0.327759, time=1.899614
+iteration 115, early stopping due to all diverse explanation predictions tensor([0.5027, 0.5590, 0.7485]) are over 0.5.
+dice, instance 197: validity=1.0, sparsity=86.0, sparsity %=0.432161, kc_distance=12.182588, actionability=26.33333396911621, actionability %0.306202, time=5.052882
+iteration 82, early stopping due to all diverse explanation predictions tensor([0.6017, 0.5463, 0.5500]) are over 0.5.
+dice, instance 198: validity=1.0, sparsity=82.0, sparsity %=0.412060, kc_distance=11.328705, actionability=41.33333206176758, actionability %0.504065, time=3.629841
+iteration 0, early stopping due to all diverse explanation predictions tensor([0.7251, 0.8497, 0.9156]) are over 0.5.
+dice, instance 199: validity=1.0, sparsity=48.33333206176758, sparsity %=0.242881, kc_distance=9.391650, actionability=52.0, actionability %1.075862, time=0.044601
