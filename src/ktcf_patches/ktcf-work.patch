@@ -1,0 +1,23 @@
+diff -ruN --exclude=data --exclude=results --exclude=__pycache__ --exclude=*.pkl ../ktcf/pykt/models/init_model.py ../ktcf-work/pykt/models/init_model.py
+--- ../ktcf/pykt/models/init_model.py	2026-10-27 14:23:16
++++ ../ktcf-work/pykt/models/init_model.py	2026-10-27 14:24:36
+@@ -159,6 +159,6 @@
+ 
+ def load_model(model_name, model_config, data_config, emb_type, ckpt_path):
+     model = init_model(model_name, model_config, data_config, emb_type)
+-    net = torch.load(os.path.join(ckpt_path, emb_type+"_model.ckpt"))
++    net = torch.load(os.path.join(ckpt_path, emb_type+"_model.ckpt"), map_location="cpu")
+     model.load_state_dict(net)
+     return model
+diff -ruN --exclude=data --exclude=results --exclude=__pycache__ --exclude=*.pkl ../ktcf/src/run.py ../ktcf-work/src/run.py
+--- ../ktcf/src/run.py	2026-10-25 12:47:31
++++ ../ktcf-work/src/run.py	2026-10-27 16:50:50
+@@ -150,8 +150,6 @@
+         if params['verbose']:
+             print(f'{params['alg']}, instance {idx}: validity={val}, sparsity={spar}, sparsity %={spar_rate:.6f}, kc_distance={kc_dist:.6f}, actionability={act}, actionability %{(act/spar):.6f}, time={runtime:.6f}')
+         idx += 1
+-        if idx==1:
+-            break
+ 
+ 
+     if params['save_result']:
