@@ -32,7 +32,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 REPO = Path(__file__).resolve().parents[2]
-OUT = REPO / "docs" / "exploration" / f"{date.today().isoformat()}_ktcf_validity_diagnostic.csv"
+
+import argparse
+_ap = argparse.ArgumentParser()
+_ap.add_argument("--init_scheme", type=int, default=1, help="1=rn, 2=rand, 3=sr, 4=cc, 5=gs")
+ARGS = _ap.parse_args()
+SCHEME = {1: "rn", 2: "rand", 3: "sr", 4: "cc", 5: "gs"}[ARGS.init_scheme]
+OUT = REPO / "docs" / "exploration" / f"{date.today().isoformat()}_ktcf_validity_diagnostic_{SCHEME}.csv"
+
 KTCF_ROOT = Path(os.environ.get("KTCF_ROOT", "../ktcf-work")).resolve()
 os.chdir(KTCF_ROOT)                     # run.py uses ./ paths
 sys.path.insert(0, str(KTCF_ROOT))      # pykt, ktcf
@@ -86,9 +93,12 @@ with open("./data/XES3G5M/metadata/shortest_paths.pkl", "rb") as f:
     shortest_info = pickle.load(f)
 test_predictions = pd.read_csv("./data/XES3G5M/XES3G5M_test_predictions_45_zeros.csv").sample(n=200, random_state=42)
 
-params = dict(alg="ktcf", init_scheme=1, lr=0.01, max_iter=200, init_noise_std=0.1,
+params = dict(alg="ktcf", init_scheme=ARGS.init_scheme, lr=0.01, max_iter=200, init_noise_std=0.1,
               init_lambda_convex=0.5, init_temp=0.1, lambda_pred=1.0, lambda_prox=0.1,
               lambda_kc=0.001, lambda_div=0.001, early_stopping_eta=1e-4, verbose=False, save_result=False)
+
+print("init_scheme:", params["init_scheme"], "->", SCHEME)
+
 ktcf = KTCF(model)
 # -----------------------------
 

@@ -1,0 +1,32 @@
+UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /Users/runner/work/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:821.)
+  pred_c_final_soft=c, pred_c_reported=float(pred_c_reported),
+init_scheme: 5 -> gs
+20/200
+40/200
+60/200
+80/200
+100/200
+120/200
+140/200
+160/200
+180/200
+200/200
+
+Validity rate (pred at target > 0.5), n=200
+  a   original responses            0.000  (should be 0: targets were chosen as predicted-wrong)
+  b   init, raw (all positions)      0.520
+  b_m init, masked (wrong only)      0.785
+  c   final soft cf_r (KTCF's view)  0.795   reported by generator: 0.925
+  d   final, binarized sigmoid>0.5   0.770
+  d2  final, binarized cf_r>0.5      0.530
+
+Sparsity (positions differing from original)
+  at init (sigmoid rule): mean 54.0   final (sigmoid rule): 53.9   final (>0.5 rule): 33.7
+  wrong answers per student: mean 108.5  -> half of that: 54.2
+
+Soft-embedding index drift (positions whose lookup is on a different concept)
+  at init: mean 108.3 of 199   final: mean 108.3
+  cf_r range over all instances: [-4.22, 4.33]
+
+wrote /kt-recourse-calibration/docs/exploration/2026-10-28_ktcf_validity_diagnostic_gs.csv
