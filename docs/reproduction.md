@@ -2,7 +2,7 @@
 
 Reference: Kim, Lee, Kim. *KTCF: Actionable Recourse in Knowledge Tracing via Counterfactual Explanations for Education.* AAAI 2026 (AI for Social Impact track, oral). arXiv 2601.09156. Code: https://github.com/woojinkim1021/ktcf, commit `a96906afa7525b60e1847284d0a2db13685cc670` (4 commits, no releases, no licence file).
 
-Our commit at the time of this reproduction: `786f553c550a9fdd74839f121ad6f2d1d9205a9d`.
+Our commit at the time of this reproduction: `786f553c550a9fdd74839f121ad6f2d1d9205a9d` (Table 1); diagnostic section updated at `038f608`+ (2026-10-31).
 
 ## 1. Environment
 
@@ -72,8 +72,12 @@ Note: the prediction CSVs store sequences via `np.array2string`, which wraps lon
 1. `run.py` lines 153–154: `if idx == 1: break`. As shipped the script evaluates one instance. Removed by patch `P1` for the reproduction.
 2. In `KTCF.generate_cf_dkt`, `loss_prox` is `scipy.spatial.distance.hamming(...)` (a Python float) and `loss_kc` is a Python float from `get_kc_loss`. Neither carries a gradient; `total_loss.backward()` updates `cf_r` through `loss_pred` only. The prox and KC terms influence the printed loss and the `early_stopping_eta` convergence check, not the search direction. Check this against the paper's description before characterizing it further.
 3. The mask `original_r == 0` means only originally-wrong positions can change; originally-correct answers are restored after every step, so "actionability" violations (1 → 0 flips) can only come from the initialization noise, not the optimizer.
-4. Validity thresholds raw `cf_r`'s prediction at the target (`> 0.5`); sparsity and KC distance threshold `sigmoid(cf_r) > 0.5`. Under the default `init_scheme 1` (original + N(0, 0.1) noise, no sigmoid in the forward pass) these two views of the same `cf_r` can disagree. Check on a hand-inspected instance.
+4. Validity thresholds the model's prediction on the final *continuous* `cf_r` (`> 0.5`); sparsity and KC distance threshold `sigmoid(cf_r) > 0.5`, i.e. the sign of `cf_r`. The two metrics therefore describe different vectors: validity is scored on a soft history, sparsity on a 0/1 one. Confirmed on all five schemes by the diagnostic below.
 5. `target_proba = 1.0`; BCE against 1.0, not against the 0.5 validity threshold.
+6. `cf_generator.py` forward pass is written `if scheme == 3: y = model(q, sigmoid(cf_r))` / `if scheme == 5: y = model(q, gumbel-sigmoid(cf_r))` / `else: y = model(q, cf_r)`. The `else` binds to the second `if`, so for scheme 3 the sigmoid forward pass is computed and immediately overwritten by the raw one. KTCF-sr therefore feeds the model raw Gaussian logits (range ≈ ±4), not `σ(z)` as eq. 12 states; its `loss_prox` and `loss_kc` do use `sigmoid(cf_r)`. Reproduction keeps this as released.
+7. Schemes 3 (sr) and 5 (gs) share the same initialization, `cf_r = randn` (`init_cf.py`); with a fixed seed they start from the identical vector. gs differs only in the forward transform `sigmoid((cf_r + g1 − g2) / init_temp)`, where `g1`, `g2` are two **scalars** sampled once per `KTCF` object (`sample_gumbel(1)`), not per-element Gumbel noise as eq. 14 reads. With `init_temp = 0.1` the transform is a near-step function at `cf_r = g2 − g1` (= 0.467 for seed 42).
+8. Under gs the transform is applied to the whole vector after the mask projection, including the originally-correct positions reset to exactly 1: `σ((1 − 0.467)/0.1) = 0.9952`, which `soft_embedding` indexes at `q + 865·0.9952` → row `q + 860`, i.e. concept `q − 5` answered right. Under gs the model never sees the student's correct answers on their own concept either.
+9. Code fact 2 applies to every scheme: the sparsity term is a thresholded Hamming distance in all five branches, so `lambda_prox` has no effect on the search in any configuration.
 
 **Metrics (`eval_metrics.py`)**
 - Validity: `pred_at_target > 0.5` (for DiCE, all 3 counterfactuals must pass).
@@ -121,29 +125,44 @@ Note: the prediction CSVs store sequences via `np.array2string`, which wraps lon
 
 **Learning-rate check.** The paper states η = 1e−4; the code default is 0.01. Running KTCF at lr 1e−4 leaves validity (0.965) and sparsity (54.0) essentially unchanged while runtime drops to 2.1 s because the early-stopping test (τ = 1e−4) triggers after a few near-zero-change steps. The lr discrepancy therefore does not explain the validity gap, and it shows something more important:
 
-**Validity diagnostic (`src/audit/ktcf_validity_diagnostic.py`, run 2026-10-27, same 200 students; per-student CSV and log in `docs/exploration/`).** The script reproduces the Table 1 run exactly ((a) = 0.000, (c) = 0.975) and then re-evaluates the model's prediction at the target under alternative views of the same counterfactual.
+**Validity diagnostic (`src/audit/ktcf_validity_diagnostic.py --init_scheme N`, run 2026-10-31, same 200 students, all five schemes; one CSV and one log per scheme in `docs/exploration/`).** The script calls KTCF's own `initialize_response` and `generate_cf_dkt` with the Table 1 parameters and seed, then re-asks the model for its prediction at the target under alternative views of the same `cf_r`. Soft vectors are passed through the same per-scheme transform the generator applies before its forward pass (identity for schemes 1–4, including sr per code fact 6; the Gumbel-sigmoid for scheme 5), so condition (c) reproduces Table 1 validity for every scheme.
 
-| Condition | What the model is given | Validity (pred > 0.5) |
-| --- | --- | --- |
-| a | original responses | 0.000 |
-| b | `cf_r` at initialization, noise on all positions, zero optimizer steps | 0.085 |
-| b_m | initialization with the actionability mask (noise on wrong answers only), zero steps | **0.375** |
-| c | final continuous `cf_r`, as `eval_validity` uses it | **0.975** (= Table 1) |
-| d | final `cf_r` binarized by `sigmoid > 0.5` (the `eval_sparsity` rule), mask re-applied | **0.765** |
-| d2 | final `cf_r` binarized by `cf_r > 0.5` (the rule inside the optimizer loop), mask re-applied | 0.000 |
+| Condition | What the model is given |
+| --- | --- |
+| a | original responses (sanity: must be 0.000 by construction of the sample) |
+| b | `cf_r` at initialization, noise on all positions, zero optimizer steps |
+| b_m | initialization with the actionability mask applied (noise on wrong answers only), zero steps |
+| c | final continuous `cf_r`, transformed as the generator transforms it; this is what `eval_validity` scores |
+| d | final `cf_r` binarized by the generator's own sparsity rule (`sigmoid(cf_r) > 0.5` for schemes 1–4; transformed value `> 0.5`, i.e. `cf_r > g2 − g1`, for gs), mask re-applied; every entry 0/1 |
+| d2 | final `cf_r` binarized by `cf_r > 0.5`, mask re-applied |
 
-Sparsity: 54.0 at initialization, 52.5 final (Table 1: 52.5), against a mean of 108.5 wrong answers per student (half: 54.2). Under the in-loop `> 0.5` rule, final sparsity is 0. Soft-embedding index drift: 107.9 of 199 positions at initialization, 108.1 at the end. `cf_r` range over all instances: [−0.42, 1.00].
+| | rn | rand | sr | cc | gs |
+| --- | --- | --- | --- | --- | --- |
+| a | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
+| b | 0.085 | 0.470 | 0.520 | 0.025 | 0.055 |
+| b_m | 0.375 | 0.765 | 0.785 | 0.170 | 0.440 |
+| **c** (Table 1 validity) | **0.975** | **0.765** | **0.945** | **0.700** | **0.925** |
+| generator's own value | 0.975 | 0.765 | 0.950 | 0.690 | 0.925 |
+| **d** (binarized) | **0.765** | **0.765** | **0.760** | **0.765** | **0.550** |
+| d2 | 0.000 | 0.765 | 0.525 | 0.440 | 0.530 |
+| sparsity, init → final (d rule) | 54.0 → 52.5 | 54.1 → 54.1 | 54.0 → 53.9 | 54.1 → 54.1 | 34.9 → 34.9 |
+| sparsity, final (d2 rule) | 0.0 | 54.1 | 33.6 | 27.1 | 33.7 |
+| index drift, init → final (of 199) | 107.9 → 108.1 | 0.0 → 0.0 | 108.3 → 108.3 | 54.1 → 54.1 | 61.0 → 154.0 |
+| `cf_r` range, all instances | [−0.42, 1.00] | [0.00, 1.00] | [−4.22, 4.33] | [0.00, 1.00] | [−4.22, 4.33] |
+
+Mean wrong answers per student: 108.5 (half: 54.2). (c) differs from the generator's value by 1–2 students for sr and cc; the generator reports the prediction from its last forward pass, which precedes that iteration's mask projection, whereas (c) scores the returned `cf_r`. Under gs, (b_m) keeps the correct positions at exactly 1, whereas the generator transforms them to 0.9952 on every iteration after the first (code fact 8); (b) and (c) are vectors the generator literally evaluated, (b_m) is a reconstruction.
 
 **What this shows, as implemented in the released code on the released checkpoint and sample:**
 
-1. *Sparsity is set by the initialization noise, not the optimizer.* Half of each student's wrong answers receive positive Gaussian noise and are counted as flipped at step 0 (54.0 ≈ 108.5 / 2); 200 Adam iterations change this by ~1.5 positions.
-2. *The optimizer never produces a correct answer by its own criterion.* No position ever reaches `cf_r > 0.5`, so the proximity term the paper describes is identically zero throughout (and, separately, carries no gradient because it is a scipy float). The ~52 "flips" that `eval_metrics` counts are positions with `cf_r ∈ (0, 0.5)`.
-3. *The model evaluates a different student.* `dkt.py` computes the interaction index as `q + num_c · r` and `soft_embedding` interpolates across that flattened index, so a wrong answer on concept *q* with `cf_r = 0.3` is embedded as concept *q + 259* answered wrong, not as *q* partly corrected. Every position the optimizer may touch (108 of 199) is looked up as an unrelated concept. The sequence certified 97.5% valid is the student with every mistake replaced by a different concept answered wrong. KC coherence is undefined for this input.
-4. *The actionable recommendation is valid 76.5% of the time, not 97.5%.* Binarizing the flagged positions into real corrections (d) and re-asking the model is the only step in the pipeline that evaluates something a student could do; reported validity overstates it by 21 points on this population.
+1. *Which answers are "flipped" is decided by the sign of the initial random draw, in every scheme.* Sparsity under each scheme's own rule is unchanged, to within 1.5 positions, between step 0 and step 200. For rn, sr and cc it is half of the wrong answers (the draw is symmetric about the threshold); for gs it is the ~32% of draws above 0.467. No scheme's optimizer moves a position across its threshold in either direction at any appreciable rate; `cf_r` under rand is unchanged to within 1/865 (no lookup changes).
+2. *The paper's validity is scored on a history the student does not have.* `dkt.py`'s `soft_embedding` indexes `q + 865·cf_r`; any non-integer value is looked up on another concept's row. Drift is ~108 of 199 positions (every wrong answer) for rn and sr, 54 for cc (the positions that drew 0.5), 0 for rand, and 154 for gs (every wrong answer plus every correct answer, code fact 8). The Table 1 ordering of initializations (rn ≈ sr > gs > rand > cc) tracks how far off-grid each scheme's final vector is, not anything about the recommendation.
+3. *Binarized validity is a function of how many random wrong answers are flipped, and of nothing else.* Across the five schemes and both binarization rules, (d)/(d2) against mean flips: 0 flips → 0.000 (rn, d2); 27 → 0.440 (cc, d2); 34 → 0.525–0.550 (sr d2, gs d, gs d2); 52–54 → 0.760–0.765 (rn, rand, sr, cc under d). Which scheme generated the flips does not enter.
+4. *The actionable recommendation validates at 0.76, or 0.55 under gs, against reported 0.92–0.975.* For rand the two coincide because there is no drift to remove. For every soft scheme the gap is the model's response to drift, not to corrections.
+5. *The optimizer contributes to (c) only by moving drifted lookups to other drifted lookups.* cc is the clearest case: (b_m) 0.170 → (c) 0.700 while drift (54.1) and flips (54.1) are both unchanged; the 0.5-valued positions were nudged to 0.5 ± ε, i.e. from one unrelated concept's row to a neighbouring one.
 
-Initialization alone (b_m) already yields 37.5% validity, so the optimizer does contribute, but on inputs that have no interpretation as corrections. Phrase all of this as a property of the released implementation; the paper's text may describe an intended method the code does not realize. The authors should be informed before this appears in any write-up.
+Phrase all of this as a property of the released implementation. The paper's text may describe an intended method the code does not realize. The authors should be informed before this appears in any write-up.
 
-**Consequences for Study 1.** RQ3 adds a required condition: KTCF validity evaluated on binarized recommendations, and all "counterfactual lift" quantities are computed on binarized interventions against observed post-correction outcomes.
+**Consequences for Study 1.** RQ3 adds a required condition: KTCF validity evaluated on binarized recommendations (condition d, per scheme), and all "counterfactual lift" quantities are computed on binarized interventions against observed post-correction outcomes. The "random half of wrong answers" baseline (condition d under rand) is the reference point any recourse method must beat.
 
 ## 5. Deviations from the paper
 
@@ -172,7 +191,7 @@ Kept in `src/ktcf_patches/ktcf-work.patch`; rebuild instructions in `src/ktcf_pa
 
 **Table 1: reproduced.** Wachter and DiCE within ±0.02 on every metric; KTCF within one SD, validity 0.045 higher. All qualitative claims hold: KTCF produces zero unactionable flips by construction of its mask; Wachter and DiCE flip 35–40 originally-correct answers to wrong; KTCF is sparser than both.
 
-**Established by the diagnostic (§4).** As released, KTCF's reported sparsity is fixed by its initialization noise, its proximity term is identically zero, its optimizer operates on inputs the model embeds as different concepts, and its actionable (binarized) validity is 0.765 against a reported 0.975. These are reproducible properties of the code on the paper's own model and sample. They are stated here as implementation facts and should be put to the authors before being characterized further.
+**Established by the diagnostic (§4), all five initializations.** As released, which answers KTCF recommends is fixed by the sign of its initialization draw and unchanged by the optimizer; its sparsity term carries no gradient; its reported validity is scored on a continuous vector that `soft_embedding` looks up as other concepts (every wrong answer under rn/sr, every position under gs); and the validity of the 0/1 recommendation is 0.76 for rn, rand, sr and cc and 0.55 for gs, against reported 0.70–0.975. Binarized validity depends only on the number of randomly flipped wrong answers. These are reproducible properties of the code on the paper's own model and sample, stated here as implementation facts to be put to the authors before being characterized further.
 
 **Scope caveat for everything above.** The Table 1 population is 200 of 253 test students who answered ≥ 45% of their first 200 KC-level interactions wrong, with targets at median position 176. Our calibration study uses all cross-batch repeat events in the full clean test set.
 

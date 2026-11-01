@@ -100,6 +100,18 @@ params = dict(alg="ktcf", init_scheme=ARGS.init_scheme, lr=0.01, max_iter=200, i
 print("init_scheme:", params["init_scheme"], "->", SCHEME)
 
 ktcf = KTCF(model)
+
+GUMBEL_OFFSET = float(ktcf.gumbel_noise_1 - ktcf.gumbel_noise_2)
+print("gumbel g1-g2:", GUMBEL_OFFSET)
+
+def soft(x):
+    """What cf_generator.py actually feeds DKT for this scheme.
+    Schemes 1-4 feed cf_r raw (3 too: its sigmoid branch is overwritten by the else).
+    Scheme 5 feeds a sharp sigmoid with a fixed scalar Gumbel offset."""
+    if params["init_scheme"] == 5:
+        return torch.sigmoid((x + GUMBEL_OFFSET) / params["init_temp"])
+    return x
+
 # -----------------------------
 
 
@@ -133,10 +145,11 @@ for i, row in test_predictions.iterrows():
 
     cf0 = initialize_response(params, r)                 # same RNG draw as run.py
     cf0_raw = cf0.detach().clone()
-    cf0_masked = mask * cf0_raw + (1 - mask) * r
-    b = pred_at(q, cf0_raw, cshft, t)
+    cf0_masked = mask * soft(cf0_raw) + (1 - mask) * r
+    b = pred_at(q, soft(cf0_raw), cshft, t)
     b_m = pred_at(q, cf0_masked, cshft, t)
-    spars_init = int(((torch.sigmoid(cf0_masked) > 0.5).float() != r).sum().item())
+    thr_init = (cf0_masked > 0.5) if params["init_scheme"] == 5 else (torch.sigmoid(cf0_masked) > 0.5)
+    spars_init = int((thr_init.float() != r).sum().item())
     drift_init = index_drift(q, cf0_masked)
 
     cf, pred_c_reported, _ = ktcf.generate_cf_dkt(
@@ -144,9 +157,15 @@ for i, row in test_predictions.iterrows():
         lr=params["lr"], max_iter=params["max_iter"], lambda_pred=params["lambda_pred"],
         lambda_prox=params["lambda_prox"], lambda_kc=params["lambda_kc"],
         early_stopping_eta=params["early_stopping_eta"], verbose=False)
-    c = pred_at(q, cf, cshft, t)
+    cf_fed = soft(cf.detach())
+    c = pred_at(q, cf_fed, cshft, t)
+    if i == test_predictions.index[0]:
+        print("first-student cf moved:", bool((cf.detach() != cf0_raw).any()))
 
-    d_vec = mask * (torch.sigmoid(cf) > 0.5).float() + (1 - mask) * r
+    if params["init_scheme"] == 5:
+        d_vec = mask * (cf_fed > 0.5).float() + (1 - mask) * r       # == cf > g2 - g1
+    else:
+        d_vec = mask * (torch.sigmoid(cf) > 0.5).float() + (1 - mask) * r
     d2_vec = mask * (cf > 0.5).float() + (1 - mask) * r
     d = pred_at(q, d_vec, cshft, t)
     d2 = pred_at(q, d2_vec, cshft, t)
@@ -159,7 +178,7 @@ for i, row in test_predictions.iterrows():
         sparsity_init=spars_init,
         sparsity_final=int((d_vec != r).sum().item()),
         sparsity_final_half=int((d2_vec != r).sum().item()),
-        drift_init=drift_init, drift_final=index_drift(q, cf),
+        drift_init=drift_init, drift_final=index_drift(q, cf_fed),
         cf_min=float(cf.min()), cf_max=float(cf.max()),
     ))
     if len(rows) % 20 == 0:
