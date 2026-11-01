@@ -1,0 +1,20 @@
+questions: 7652; route depth: max 7, distribution {2: 166, 3: 137, 4: 1580, 5: 3530, 6: 2229, 7: 10}
+level           1: nodes      9  median/pair  13.0  p90 220.0  eligible 136,406 (0.742)
+level           2: nodes     53  median/pair   3.0  p90  41.0  eligible  58,383 (0.318)
+level           3: nodes    210  median/pair   2.0  p90  15.0  eligible  11,876 (0.065)
+level           4: nodes    502  median/pair   2.0  p90   8.0  eligible   2,840 (0.015)
+level           5: nodes    840  median/pair   1.0  p90   6.0  eligible      52 (0.000)
+level           6: nodes    975  median/pair   1.0  p90   5.0  eligible      38 (0.000)
+level           7: nodes    976  median/pair   1.0  p90   5.0  eligible      38 (0.000)
+level  leaf_kc_id: nodes    798  median/pair   1.0  p90   5.0  eligible      59 (0.000)
+
+| level      |   distinct_nodes |   median_per_student_node |   p90 |   share_pairs_ge_21 |   repeat_events_eligible |   share_eligible |
+|:-----------|-----------------:|--------------------------:|------:|--------------------:|-------------------------:|-----------------:|
+| 1          |                9 |                        13 |   220 |         0.343903    |                   136406 |      0.742119    |
+| 2          |               53 |                         3 |    41 |         0.216339    |                    58383 |      0.317634    |
+| 3          |              210 |                         2 |    15 |         0.0541155   |                    11876 |      0.0646116   |
+| 4          |              502 |                         2 |     8 |         0.00969365  |                     2840 |      0.0154511   |
+| 5          |              840 |                         1 |     6 |         0.000403457 |                       52 |      0.000282907 |
+| 6          |              975 |                         1 |     5 |         0.000108094 |                       38 |      0.00020674  |
+| 7          |              976 |                         1 |     5 |         0.000108094 |                       38 |      0.00020674  |
+| leaf_kc_id |              798 |                         1 |     5 |         0.000329767 |                       59 |      0.000320991 |
