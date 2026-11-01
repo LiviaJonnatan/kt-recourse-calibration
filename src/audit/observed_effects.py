@@ -176,6 +176,21 @@ def kc_windows(df: pd.DataFrame) -> pd.DataFrame:
     return d
 
 
+def window_positions(seqs: dict, uid, kc, pos: int, q, exclude_q: bool) -> tuple[list[int], list[int]]:
+    """seq_pos of the WINDOW same-kc interactions before `pos` and after it.
+    exclude_q drops later attempts at question q from the post window (treated arm)."""
+    sp, qq, _ = seqs[(uid, kc)]
+    j = np.searchsorted(sp, pos, side="left")
+    pre = sp[max(0, j - WINDOW):j]
+    k = np.searchsorted(sp, pos, side="right")
+    post_sp, post_q = sp[k:], qq[k:]
+    if exclude_q:
+        keep = post_q != q
+        post_sp = post_sp[keep]
+    post = post_sp[:WINDOW]
+    return [int(x) for x in pre], [int(x) for x in post]
+
+
 def treated_post_acc(events: pd.DataFrame, d: pd.DataFrame) -> np.ndarray:
     """Post-window for treated events: next WINDOW same-KC interactions after the repeat,
     excluding further attempts at the repeated question."""
@@ -259,6 +274,29 @@ def h2c(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
 
     t = rep.loc[pairs["treated_idx"]]
     c = ctrl.loc[pairs["control_idx"]]
+
+    # save the pairs with their window positions for the calibration scoring (Phase 4)
+    seqs = {k: (g["seq_pos"].to_numpy(), g["question"].to_numpy(), g["response"].to_numpy())
+            for k, g in d.groupby(["uid", "kc"], sort=False)}
+    pre_t, post_t, pre_c, post_c = [], [], [], []
+    for (uid_t, kc_t, first_t, rep_pos, q_t), (uid_c, kc_c, pos_c, q_c) in zip(
+            zip(t["uid"], t["kc"], t["hist"], t["seq_pos"], t["question"]),
+            zip(c["uid"], c["kc"], c["seq_pos"], c["question"])):
+        a, _ = window_positions(seqs, uid_t, kc_t, int(first_t), q_t, False)
+        _, b = window_positions(seqs, uid_t, kc_t, int(rep_pos), q_t, True)
+        a2, b2 = window_positions(seqs, uid_c, kc_c, int(pos_c), q_c, False)
+        pre_t.append(json.dumps(a)); post_t.append(json.dumps(b)); pre_c.append(json.dumps(a2)); post_c.append(json.dumps(b2))
+    pairs_out = pd.DataFrame(dict(
+        split=t["split"].to_numpy(), kind=t["kind"].to_numpy(), gap_class=t["gap_class"].astype(str).to_numpy(),
+        qtype=t["qtype"].to_numpy(), tercile=t["tercile"].to_numpy(), kc=t["kc"].to_numpy(),
+        uid_t=t["uid"].to_numpy(), question_t=t["question"].to_numpy(), first_pos_t=t["hist"].to_numpy().astype(int),
+        repeat_pos_t=t["seq_pos"].to_numpy(), repeat_response_t=t["response"].to_numpy(),
+        pre_acc_t=t["pre_acc"].to_numpy(), post_acc_t=t["post_acc_treated"].to_numpy(),
+        uid_c=c["uid"].to_numpy(), question_c=c["question"].to_numpy(), first_pos_c=c["seq_pos"].to_numpy(),
+        pre_acc_c=c["pre_acc"].to_numpy(), post_acc_c=c["post_acc"].to_numpy(),
+        pre_pos_t=pre_t, post_pos_t=post_t, pre_pos_c=pre_c, post_pos_c=post_c))
+    pairs_out.to_csv(OUT / f"rq2_h2c_pairs_{KC_TAG}.csv", index=False)
+    log["pairs_file"] = str(OUT / f"rq2_h2c_pairs_{KC_TAG}.csv")
     diff_t = (t["post_acc_treated"] - t["pre_acc"]).to_numpy()
     diff_c = (c["post_acc"] - c["pre_acc"]).to_numpy()
     rows = []
