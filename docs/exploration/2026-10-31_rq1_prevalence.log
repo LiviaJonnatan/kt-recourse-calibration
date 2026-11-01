@@ -1,0 +1,151 @@
+
+### rq1_overall
+
+| split   |   interactions |   students |   repeat_events |   share_of_interactions |   corrections |   reviews |   students_with_repeat |   share_students_with_repeat |
+|:--------|---------------:|-----------:|----------------:|------------------------:|--------------:|----------:|-----------------------:|-----------------------------:|
+| test    |        1090938 |       3612 |           36931 |                  0.0339 |          9499 |     27432 |                   2923 |                       0.8092 |
+| train   |        4400640 |      14452 |          146875 |                  0.0334 |         37676 |    109199 |                  11765 |                       0.8141 |
+| pooled  |        5491578 |      18064 |          183806 |                  0.0335 |         47175 |    136631 |                  14688 |                       0.8131 |
+
+### rq1_by_tercile
+
+| split   | tercile    |   interactions |   students |   repeat_events |   share_of_interactions |   corrections |   reviews |   students_with_repeat |   share_students_with_repeat |
+|:--------|:-----------|---------------:|-----------:|----------------:|------------------------:|--------------:|----------:|-----------------------:|-----------------------------:|
+| test    | easy       |         374927 |       3612 |           10216 |                  0.0272 |           960 |      9256 |                   1936 |                       0.536  |
+| test    | hard       |         306534 |       3612 |           12323 |                  0.0402 |          5365 |      6958 |                   2245 |                       0.6215 |
+| test    | medium     |         405945 |       3612 |           14373 |                  0.0354 |          3168 |     11205 |                   2302 |                       0.6373 |
+| test    | no tercile |           3532 |        540 |              19 |                  0.0054 |             6 |        13 |                     14 |                       0.0259 |
+| train   | easy       |        1510059 |      14452 |           40151 |                  0.0266 |          3893 |     36258 |                   7770 |                       0.5376 |
+| train   | hard       |        1234754 |      14452 |           48523 |                  0.0393 |         20949 |     27574 |                   8937 |                       0.6184 |
+| train   | medium     |        1640813 |      14452 |           58042 |                  0.0354 |         12785 |     45257 |                   9338 |                       0.6461 |
+| train   | no tercile |          15014 |       2051 |             159 |                  0.0106 |            49 |       110 |                     55 |                       0.0268 |
+| pooled  | easy       |        1884986 |      18064 |           50367 |                  0.0267 |          4853 |     45514 |                   9706 |                       0.5373 |
+| pooled  | hard       |        1541288 |      18064 |           60846 |                  0.0395 |         26314 |     34532 |                  11182 |                       0.619  |
+| pooled  | medium     |        2046758 |      18064 |           72415 |                  0.0354 |         15953 |     56462 |                  11640 |                       0.6444 |
+| pooled  | no tercile |          18546 |       2591 |             178 |                  0.0096 |            55 |       123 |                     69 |                       0.0266 |
+
+### rq1_by_position
+
+| split   | position    |   interactions |   students |   repeat_events |   share_of_interactions |   corrections |   reviews |   students_with_repeat |   share_students_with_repeat |
+|:--------|:------------|---------------:|-----------:|----------------:|------------------------:|--------------:|----------:|-----------------------:|-----------------------------:|
+| test    | first half  |         546365 |       3612 |           18434 |                  0.0337 |          4829 |     13605 |                   2327 |                       0.6442 |
+| test    | second half |         544573 |       3612 |           18497 |                  0.034  |          4670 |     13827 |                   2236 |                       0.619  |
+| train   | first half  |        2203900 |      14452 |           73689 |                  0.0334 |         19247 |     54442 |                   9649 |                       0.6677 |
+| train   | second half |        2196740 |      14452 |           73186 |                  0.0333 |         18429 |     54757 |                   8810 |                       0.6096 |
+| pooled  | first half  |        2750265 |      18064 |           92123 |                  0.0335 |         24076 |     68047 |                  11976 |                       0.663  |
+| pooled  | second half |        2741313 |      18064 |           91683 |                  0.0334 |         23099 |     68584 |                  11046 |                       0.6115 |
+
+### rq1_by_qtype
+
+| split   | qtype         |   interactions |   students |   repeat_events |   share_of_interactions |   corrections |   reviews |   students_with_repeat |   share_students_with_repeat |
+|:--------|:--------------|---------------:|-----------:|----------------:|------------------------:|--------------:|----------:|-----------------------:|-----------------------------:|
+| test    | fill-in       |         759988 |       3612 |            5063 |                  0.0067 |          1715 |      3348 |                   1770 |                       0.49   |
+| test    | single-choice |         330950 |       3612 |           31868 |                  0.0963 |          7784 |     24084 |                   2119 |                       0.5867 |
+| train   | fill-in       |        3070149 |      14452 |           19582 |                  0.0064 |          6770 |     12812 |                   7140 |                       0.494  |
+| train   | single-choice |        1330491 |      14452 |          127293 |                  0.0957 |         30906 |     96387 |                   8493 |                       0.5877 |
+| pooled  | fill-in       |        3830137 |      18064 |           24645 |                  0.0064 |          8485 |     16160 |                   8910 |                       0.4932 |
+| pooled  | single-choice |        1661441 |      18064 |          159161 |                  0.0958 |         38690 |    120471 |                  10612 |                       0.5875 |
+
+### rq1_by_kind
+
+| split   | kind       |   repeat_events |   share_of_repeats |   corrections |   reviews |   students |
+|:--------|:-----------|----------------:|-------------------:|--------------:|----------:|-----------:|
+| test    | correction |            9499 |             0.2572 |          9499 |         0 |       2030 |
+| test    | review     |           27432 |             0.7428 |             0 |     27432 |       2608 |
+| train   | correction |           37676 |             0.2565 |         37676 |         0 |       8331 |
+| train   | review     |          109199 |             0.7435 |             0 |    109199 |      10416 |
+| pooled  | correction |           47175 |             0.2567 |         47175 |         0 |      10361 |
+| pooled  | review     |          136631 |             0.7433 |             0 |    136631 |      13024 |
+
+### rq1_by_gap_class
+
+| split   | gap_class   |   repeat_events |   share_of_repeats |   corrections |   reviews |   students |
+|:--------|:------------|----------------:|-------------------:|--------------:|----------:|-----------:|
+| test    | <1h         |           13078 |             0.3541 |          3988 |      9090 |       1892 |
+| test    | <1d         |           13218 |             0.3579 |          2876 |     10342 |       1333 |
+| test    | <7d         |            6076 |             0.1645 |          1430 |      4646 |       1232 |
+| test    | 7d+         |            4559 |             0.1234 |          1205 |      3354 |       1497 |
+| train   | <1h         |           51121 |             0.3481 |         15660 |     35461 |       7843 |
+| train   | <1d         |           51796 |             0.3527 |         11273 |     40523 |       5318 |
+| train   | <7d         |           24774 |             0.1687 |          5985 |     18789 |       5007 |
+| train   | 7d+         |           19184 |             0.1306 |          4758 |     14426 |       6026 |
+| pooled  | <1h         |           64199 |             0.3493 |         19648 |     44551 |       9735 |
+| pooled  | <1d         |           65014 |             0.3537 |         14149 |     50865 |       6651 |
+| pooled  | <7d         |           30850 |             0.1678 |          7415 |     23435 |       6239 |
+| pooled  | 7d+         |           23743 |             0.1292 |          5963 |     17780 |       7523 |
+
+### rq1_by_attempt
+
+| split   | attempt_no   |   repeat_events |   share_of_repeats |   corrections |   reviews |   students |
+|:--------|:-------------|----------------:|-------------------:|--------------:|----------:|-----------:|
+| test    | 2nd          |           35871 |             0.9713 |          9292 |     26579 |       2923 |
+| test    | 3rd          |             889 |             0.0241 |           191 |       698 |        366 |
+| test    | 4th+         |             171 |             0.0046 |            16 |       155 |         69 |
+| train   | 2nd          |          142778 |             0.9721 |         36921 |    105857 |      11765 |
+| train   | 3rd          |            3404 |             0.0232 |           667 |      2737 |       1541 |
+| train   | 4th+         |             693 |             0.0047 |            88 |       605 |        282 |
+| pooled  | 2nd          |          178649 |             0.9719 |         46213 |    132436 |      14688 |
+| pooled  | 3rd          |            4293 |             0.0234 |           858 |      3435 |       1907 |
+| pooled  | 4th+         |             864 |             0.0047 |           104 |       760 |        351 |
+
+### rq1_by_kind_x_gap
+
+| split   | kind_gap         |   repeat_events |   share_of_repeats |   corrections |   reviews |   students |
+|:--------|:-----------------|----------------:|-------------------:|--------------:|----------:|-----------:|
+| test    | correction / 7d+ |            1205 |             0.0326 |          1205 |         0 |        678 |
+| test    | correction / <1d |            2876 |             0.0779 |          2876 |         0 |        869 |
+| test    | correction / <1h |            3988 |             0.108  |          3988 |         0 |       1153 |
+| test    | correction / <7d |            1430 |             0.0387 |          1430 |         0 |        665 |
+| test    | review / 7d+     |            3354 |             0.0908 |             0 |      3354 |       1306 |
+| test    | review / <1d     |           10342 |             0.28   |             0 |     10342 |       1273 |
+| test    | review / <1h     |            9090 |             0.2461 |             0 |      9090 |       1543 |
+| test    | review / <7d     |            4646 |             0.1258 |             0 |      4646 |       1103 |
+| train   | correction / 7d+ |            4758 |             0.0324 |          4758 |         0 |       2842 |
+| train   | correction / <1d |           11273 |             0.0768 |         11273 |         0 |       3455 |
+| train   | correction / <1h |           15660 |             0.1066 |         15660 |         0 |       4782 |
+| train   | correction / <7d |            5985 |             0.0407 |          5985 |         0 |       2693 |
+| train   | review / 7d+     |           14426 |             0.0982 |             0 |     14426 |       5268 |
+| train   | review / <1d     |           40523 |             0.2759 |             0 |     40523 |       5044 |
+| train   | review / <1h     |           35461 |             0.2414 |             0 |     35461 |       6419 |
+| train   | review / <7d     |           18789 |             0.1279 |             0 |     18789 |       4538 |
+| pooled  | correction / 7d+ |            5963 |             0.0324 |          5963 |         0 |       3520 |
+| pooled  | correction / <1d |           14149 |             0.077  |         14149 |         0 |       4324 |
+| pooled  | correction / <1h |           19648 |             0.1069 |         19648 |         0 |       5935 |
+| pooled  | correction / <7d |            7415 |             0.0403 |          7415 |         0 |       3358 |
+| pooled  | review / 7d+     |           17780 |             0.0967 |             0 |     17780 |       6574 |
+| pooled  | review / <1d     |           50865 |             0.2767 |             0 |     50865 |       6317 |
+| pooled  | review / <1h     |           44551 |             0.2424 |             0 |     44551 |       7962 |
+| pooled  | review / <7d     |           23435 |             0.1275 |             0 |     23435 |       5641 |
+
+### rq1_by_kind_x_tercile
+
+| split   | kind_tercile            |   repeat_events |   share_of_repeats |   corrections |   reviews |   students |
+|:--------|:------------------------|----------------:|-------------------:|--------------:|----------:|-----------:|
+| test    | correction / easy       |             960 |             0.026  |           960 |         0 |        532 |
+| test    | correction / hard       |            5365 |             0.1453 |          5365 |         0 |       1725 |
+| test    | correction / medium     |            3168 |             0.0858 |          3168 |         0 |       1167 |
+| test    | correction / no tercile |               6 |             0.0002 |             6 |         0 |          5 |
+| test    | review / easy           |            9256 |             0.2506 |             0 |      9256 |       1875 |
+| test    | review / hard           |            6958 |             0.1884 |             0 |      6958 |       1688 |
+| test    | review / medium         |           11205 |             0.3034 |             0 |     11205 |       2110 |
+| test    | review / no tercile     |              13 |             0.0004 |             0 |        13 |         12 |
+| train   | correction / easy       |            3893 |             0.0265 |          3893 |         0 |       2180 |
+| train   | correction / hard       |           20949 |             0.1426 |         20949 |         0 |       6934 |
+| train   | correction / medium     |           12785 |             0.087  |         12785 |         0 |       4943 |
+| train   | correction / no tercile |              49 |             0.0003 |            49 |         0 |         29 |
+| train   | review / easy           |           36258 |             0.2469 |             0 |     36258 |       7495 |
+| train   | review / hard           |           27574 |             0.1877 |             0 |     27574 |       6754 |
+| train   | review / medium         |           45257 |             0.3081 |             0 |     45257 |       8543 |
+| train   | review / no tercile     |             110 |             0.0007 |             0 |       110 |         34 |
+| pooled  | correction / easy       |            4853 |             0.0264 |          4853 |         0 |       2712 |
+| pooled  | correction / hard       |           26314 |             0.1432 |         26314 |         0 |       8659 |
+| pooled  | correction / medium     |           15953 |             0.0868 |         15953 |         0 |       6110 |
+| pooled  | correction / no tercile |              55 |             0.0003 |            55 |         0 |         34 |
+| pooled  | review / easy           |           45514 |             0.2476 |             0 |     45514 |       9370 |
+| pooled  | review / hard           |           34532 |             0.1879 |             0 |     34532 |       8442 |
+| pooled  | review / medium         |           56462 |             0.3072 |             0 |     56462 |      10653 |
+| pooled  | review / no tercile     |             123 |             0.0007 |             0 |       123 |         46 |
+
+repeat events without a difficulty tercile: 0.0010 (within the 15% contingency threshold)
+
+wrote 9 tables to data/processed/rq1/
