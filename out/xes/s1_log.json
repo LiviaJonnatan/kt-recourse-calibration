@@ -1,0 +1,17 @@
+{
+  "raw_cells": 7295810,
+  "after_mask": 5549184,
+  "after_batch_dedup": 5492238,
+  "after_pre2019": 5491578,
+  "events_total": 5491578,
+  "events_with_outcome": 4134912,
+  "action_counts": {
+    "new": 5307772,
+    "review": 136631,
+    "correction": 47175
+  },
+  "repeat_share": 0.0334705252297245,
+  "area_level": 2,
+  "n_areas": 53,
+  "window": 5
+}

@@ -201,3 +201,34 @@ Kept in `src/ktcf_patches/ktcf-work.patch`; rebuild instructions in `src/ktcf_pa
 - The counterfactual's per-flip predicted lift is not exposed; `cf_r` and `pred_at_target` are returned, so lift per intervention must be recomputed by re-running the model on single flips.
 - The 0.5 validity threshold is hard-coded in `eval_validity`; `target_proba = 1.0` is a module constant in `cf_generator.py`.
 - Model family 1 is concept-level by construction. The question-aware and forgetting-aware families (pre-registration §5) need upstream `pykt-toolkit`, since KTCF's vendored copy ships only `dkt.py`.
+
+# Study 2 — uplift-objective recourse (append to docs/reproduction.md)
+
+**What was run.** `src/uplift/` stages 0–8 on XES3G5M (KTCF's released DKT checkpoint, no
+retraining), Duolingo SLAM en_es, and ASSISTments 2012-13 (skill-tagged original problems); three
+seeds, 20 bootstrap refits, three outcomes (next-5 same-area, same-item next encounter, next-20
+same-area), with and without a headroom filter (recent same-area accuracy < 0.8); new-practice policy
+and review-timing analyses; set-level selection on XES3G5M and SLAM. Commands in `src/uplift/README.md`.
+
+**Invariants hit.**
+- XES3G5M: 5,491,578 clean interactions, 183,806 re-attempts (same as `reconstruct_log.json`);
+  released DKT 0.7765 AUC on full cleaned test sequences (0.7745 on the window file; 0.8226 on the
+  truncated 200-step file, as published).
+- SLAM: 3,396,935 tokens, 2,593 learners, 73.3% re-attempts; GBM student model 0.7993 AUC
+  (shared-task logistic baseline 0.774).
+- ASSISTments: 2,533,720 problems, 18,180 students, 4.9% same-problem re-attempts; GBM student
+  model 0.754 AUC (DKT-Forget published ≈ 0.73).
+- HLR fit on Duolingo traces (en learners / es UI, 1.5M rows): MAE 0.140 vs 0.173 constant
+  (paper: 0.128 vs 0.175).
+
+**What reproduced exactly across machines (sandbox → laptop).** Stage 1 counts, stage 2 AUCs,
+T-learner and LCB top-20% gains to three decimals, average-effect estimates, four-group shares.
+
+**What varied.** DR-learner top-20% gains on the review arm (XES3G5M: +0.050 sandbox vs +0.018
+laptop at seed 0; seed sd up to 0.079 on ASSISTments). Cause: inverse-propensity weights in the
+pseudo-outcome. Decision: τ_LCB is the reported estimator; τ_DR is a debiasing check only.
+
+**Sandbox vs laptop settings.** Sandbox: 8 bootstraps, 200k treated cap, 300–600 students at set
+level. Laptop (results of record): 20 bootstraps, 300k treated cap, 3 seeds, 1,000 students.
+
+**Corrections made during the study** are listed in `docs/uplift/RESULTS.md`.

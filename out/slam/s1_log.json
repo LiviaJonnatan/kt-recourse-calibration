@@ -1,0 +1,20 @@
+{
+  "tokens": 3396935,
+  "users": 2593,
+  "exercises": 309075,
+  "events_total": 3396935,
+  "events_with_outcome": 3092888,
+  "action_counts": {
+    "review": 2199093,
+    "new": 906904,
+    "correction": 290938
+  },
+  "repeat_share": 0.7330228573699527,
+  "n_areas": 16,
+  "session_counts": {
+    "lesson": 2613718,
+    "practice": 724831,
+    "test": 58386
+  },
+  "window": 5
+}

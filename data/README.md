@@ -93,3 +93,32 @@ Fill in after download so everyone can confirm they have identical files. Comput
 3. Do not commit data, even small extracts. Commit the script that makes the extract.
 4. Keep this repo out of iCloud/Dropbox-synced folders.
 5. No non-public data goes in this folder without a written data agreement and a note here on its terms.
+
+## Study 2 datasets
+
+**Duolingo 2018 SLAM shared task, en_es track** — Settles, Brust, Gustafson, Hagiwara & Madnani
+(2018), doi:10.7910/DVN/8SWHNO, Harvard Dataverse, CC BY-NC 4.0. Files: `en_es_slam_20190204.{train,
+dev,test}` and `_{dev,test}.key` (v4.0, 2019-02-04). Place under `data/raw/slam/`. Cite the BEA 2018
+paper (see `CITING.md` in the release).
+
+**Duolingo spaced-repetition learning traces (HLR)** — Settles & Meeder (2016),
+doi:10.7910/DVN/N8XJME, Harvard Dataverse. File: `learning_traces.13m.csv` (unzipped; `s0_hlr.py`
+accepts csv or zip). Place under `data/raw/slam/`. Used only to fit the half-life-regression
+baseline on en-learner / es-UI rows.
+
+**ASSISTments 2012-13 "School Data with Affect"** — ASSISTments, Worcester Polytechnic Institute
+(sites.google.com/site/assistmentsdata). The full export is ~3 GB in memory because of the `actions`
+column. Pre-filter before use:
+```python
+import pandas as pd
+cols = ["user_id","problem_id","skill_id","skill","correct","start_time","end_time","attempt_count",
+        "hint_count","problem_type","original","tutor_mode","type","sequence_id","ms_first_response"]
+df = pd.read_csv("2012-2013-data-with-predictions-4-final.csv", usecols=cols, low_memory=False)
+df = df[df["skill_id"].notna() & (df["original"] == 1)]
+df.to_csv("assist2012_slim_csv.gz", index=False, compression="gzip")
+```
+Place `assist2012_slim_csv.gz` (~84 MB) under `data/raw/assist/`. `correct` is binarised as
+`correct == 1`; area = `skill_id`. This is the common benchmark of DKT-Forget, DAS3H, HawkesKT and
+LPKT and is preprocessed by pyKT as `assist2012`.
+
+**XES3G5M** — unchanged from Study 1 (`question_level/*_quelevel.csv`, `metadata/questions.json`).

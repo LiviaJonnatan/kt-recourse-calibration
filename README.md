@@ -1,6 +1,6 @@
 # kt-recourse-calibration
 
-**Study 1: Do knowledge tracing models know what their recommended interventions do?**
+## Study 1: Do knowledge tracing models know what their recommended interventions do?
 
 Counterfactual recourse methods for knowledge tracing (KT) tell a student which past mistakes to go back and fix so that the model would predict success on the next question. They score those recommendations by asking the same model whether its prediction improves. That assumes the model can predict what fixing a mistake actually does to a student. This repository tests that assumption on real data: it reproduces a published recourse method (KTCF, AAAI 2026), measures what re-attempts actually do to students in a large public dataset (XES3G5M), and compares the model’s counterfactual predictions with what happened.
 
@@ -8,7 +8,7 @@ Study 1 is complete. Findings are summarised below; the technical record is in `
 
 ---
 
-## Findings
+### Findings
 
 **1. The published method’s validity score does not measure its recommendations.** KTCF reports that 93% of its recommendations are “valid” (the model flips from predicting failure to predicting success). We reproduced that number from the released code. But the model is scored on a vector of fractional values, which its embedding lookup turns into a history of *other* concepts the student never practised. Scored on the actual recommendation (the student’s real answers with the flagged mistakes marked correct), validity is 76.5%, and it is 76.5% for a coin-flip recommendation too. Which mistakes get flagged is decided by the sign of a random initialization and never changed by the optimizer. Details: `docs/validity_explainer.md` (explanation), `docs/reproduction.md` (full record).
 > Reference: `docs/exploration/2026-10-31_ktcf_validity_diagnostic_rn.log` and `_rand.log` (conditions c and d; sparsity init vs final). The five-scheme table in `docs/reproduction.md` §4. Paper figure from Table 1 of the KTCF paper.
@@ -38,7 +38,7 @@ Study 1 is complete. Findings are summarised below; the technical record is in `
 
 ---
 
-## How Study 1 works
+### How Study 1 works
 
 ```mermaid
 flowchart LR
@@ -57,7 +57,7 @@ flowchart LR
 
 ---
 
-## Repository layout
+### Repository layout
 
 ```
 docs/
@@ -74,7 +74,7 @@ data/
   processed/                clean parquet, item difficulty, rq1/, rq2/, rq3/ tables (not tracked)
 ```
 
-## Reproducing
+### Reproducing
 
 Requirements: Python 3.12, `uv`, the XES3G5M dataset under `data/raw/XES3G5M/` (the pyKT download plus `metadata/questions.json`), and a sibling checkout of KTCF with its released checkpoint at the path set in `.env` (`KTCF_ROOT`). Phase 1 additionally follows the setup in `docs/reproduction.md` §2–3.
 
@@ -96,14 +96,53 @@ For the KTCF diagnostic, from the repo root: `uv run python src/audit/ktcf_valid
 
 All scripts are seeded; reruns are byte-identical on CPU. Every number in this README traces to a log in `docs/exploration/`.
 
-## Dataset
+### Dataset
 
 XES3G5M (Liu et al., NeurIPS 2023): 18,066 students, 5.5 million interactions, 7,652 questions, timestamps, a five-level knowledge-component hierarchy, and question text and type. It is the dataset KTCF was evaluated on, which is what makes the comparison possible. ASSISTments and EdNet-KT1, named previously, were not needed.
 
-### What this study does not claim
+#### What this study does not claim
 
 Observed effects are associations, not causal estimates: students who re-attempt differ from students who do not, and public logs contain no randomized interventions. The calibration test is a necessary condition for recourse to work, not evidence that it does. One dataset, one platform, one subject, one released model.
 
-## Status
+### Status
 
 Study 1 complete (October 2026). The KTCF authors have been contacted about the validity finding; their response will be reflected here.
+
+## Study 2: research question and claims
+
+**Question.** For a student at a given moment, which past questions, if re-attempted now, would most
+improve their subsequent performance compared with attempting a new question in the same area — and
+can that be verified from what logged students actually did afterwards?
+
+**Why this replaces the KTCF question.** KTCF asks which past wrong answers, if flipped, would make the
+student model predict the target correct. That (a) excludes reviews of correct items, (b) ignores time
+since last attempt, and (c) is scored by the same model that made the prediction, which Study 1 showed
+is not calibrated across gaps.
+
+**Primary outcome.** Observed treated-minus-control gain in the top 20% of each ranking (Qini
+framing), where treated = logged re-attempts and control = matched new-item events in the same area,
+on held-out students. Outcomes: next-5 same-area accuracy (primary), same-item next-encounter
+correctness (secondary), next-20 same-area (exploratory).
+
+**Primary comparison.** Lift-based ranking (τ_LCB) vs predicted-correctness ranking (the student
+model's P(correct), KTCF's signal) vs random. Decision rule fixed in advance: report τ_LCB; use τ_DR only
+to confirm that propensity adjustment does not reverse the ranking.
+
+**Secondary analyses.** Headroom subgroup (recent same-area accuracy < 0.8); new-practice policy;
+review timing; set-level (k = 5) realized outcomes where same-item repeats are dense.
+
+**Claims we make.** (1) The naive observational effect of re-attempting is dominated by selection.
+(2) On three platforms, reviews ranked by causal lift are followed by larger gains than reviews
+ranked by predicted correctness, which is no better than random. (3) The model identifies corrections
+that should be replaced by new practice. (4) The student model's self-scored validity cannot
+distinguish recommendation methods.
+
+**Claims we do not make.** That a recommended study list, delivered to a student, improves their
+performance. The data are observational; re-attempts were chosen by students and platform
+schedulers; the method ranks them after the fact with propensity weighting. The delivered
+recommendation can only be tested by randomized assignment.
+
+**Known limitations.** Gradient-boosted history model stands in for a DKT on SLAM and ASSISTments;
+one-flip approximation of KTCF on those datasets; item-level outcome underpowered on XES3G5M;
+timing not identifiable from any of the three logs; set-level evaluation possible only on SLAM and
+null there on content words.
