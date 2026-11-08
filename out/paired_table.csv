@@ -1,0 +1,13 @@
+dataset,outcome,arm,gap_vs_pcorrect,ci_lo,ci_hi,gap_vs_random,ci_lo_r,ci_hi_r,seeds
+assist,_area,correction,-0.065,-0.103,-0.021,-0.004,-0.031,0.02,3
+assist,_area,review,0.114,0.091,0.133,0.08,0.061,0.096,3
+assist,_item,correction,0.19,0.016,0.333,0.037,-0.045,0.123,3
+assist,_item,review,0.295,0.242,0.346,0.233,0.172,0.288,3
+slam,_area,correction,0.083,0.067,0.095,0.1,0.093,0.109,3
+slam,_area,review,0.128,0.119,0.139,0.129,0.121,0.139,3
+slam,_item,correction,0.116,0.098,0.135,0.181,0.159,0.201,3
+slam,_item,review,0.248,0.225,0.268,0.247,0.228,0.268,3
+xes,_area,correction,0.099,0.071,0.133,0.103,0.086,0.119,3
+xes,_area,review,0.09,0.081,0.1,0.06,0.049,0.07,3
+xes,_item,correction,0.062,-0.053,0.177,0.019,-0.068,0.126,3
+xes,_item,review,0.156,0.093,0.214,0.143,0.068,0.206,3

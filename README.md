@@ -108,7 +108,11 @@ Observed effects are associations, not causal estimates: students who re-attempt
 
 Study 1 complete (October 2026). The KTCF authors have been contacted about the validity finding; their response will be reflected here.
 
-## Study 2: research question and claims
+## Study 2: recommend by causal lift, not predicted correctness
+
+Knowledge-tracing models predict whether a student will answer the next question correctly; KTCF turns that into a study list by asking which past wrong answers, if flipped, would make the model predict success. Study 1 showed the model's self-grade is uninformative (0.90–0.97 for any list, including random). Study 2 replaces the objective: rank past questions by the **estimated causal lift** of re-attempting them now — reviews of correct items included — on the student's *observed* subsequent performance, compared with attempting a new question in the same area, with propensity adjustment for who chooses to re-attempt.
+
+On three platforms (XES3G5M, Duolingo SLAM, ASSISTments 2012-13; 3 seeds), reviews ranked by lift were followed by **8–18 points** higher same-area accuracy and **18–32 points** higher recall of the item itself than reviews ranked by the model's predicted correctness, which did no better than random (all twelve clustered 95% CIs exclude zero). The model also identifies corrections that should be replaced by new practice (+5 / +1 / +1 points), and item-level review lift partly transfers between a language app and a math tutor with no retraining. Not shown: that delivering the list improves students — the evidence is observational, and a randomized study is the proposed next step. Full results: `docs/uplift/RESULTS.md`; how to run: `src/uplift/README.md`.
 
 **Question.** For a student at a given moment, which past questions, if re-attempted now, would most
 improve their subsequent performance compared with attempting a new question in the same area — and

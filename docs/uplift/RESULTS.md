@@ -1,12 +1,17 @@
 # Study 2 — Uplift-objective recourse for knowledge tracing: results
 
-Document of record for Study 2. Every number here comes from a file under `out/` (cited next to each table). All runs: 3 seeds (0/1/2), 20 student-bootstrap refits, training on train-split learners only, evaluation on held-out learners.
+Document of record for Study 2. Every number here comes from a file under `out/uplift/` (cited next to each table). All runs: 3 seeds (0/1/2), 20 student-bootstrap refits, training on train-split learners only, evaluation on held-out learners.
 
 ## 1. Question
 
-> For a student at a given moment, which past questions, if re-attempted now, would most improve their subsequent performance compared with attempting a new question in the same area — and can that be verified from what logged students actually did afterwards?
+> For a student at a given moment, which past questions, if re-attempted now, would most improve
+> their subsequent performance compared with attempting a new question in the same area — and can
+> that be verified from what logged students actually did afterwards?
 
-This replaces KTCF's objective ("which past wrong answers, if flipped, make the student model predict the target correct"). Three changes: reviews of previously correct items are eligible alongside corrections; time since last attempt is part of the estimate; the recommendation is scored against observed outcomes rather than the student model's own prediction.
+This replaces KTCF's objective ("which past wrong answers, if flipped, make the student model
+predict the target correct"). Three changes: reviews of previously correct items are eligible
+alongside corrections; time since last attempt is part of the estimate; the recommendation is
+scored against observed outcomes rather than the student model's own prediction.
 
 ## 2. Data
 
@@ -14,13 +19,14 @@ This replaces KTCF's objective ("which past wrong answers, if flipped, make the 
 |---|---|---|---|
 | Unit | question attempt | token in exercise | skill-tagged original problem |
 | Interactions (clean) | 5,491,578 | 3,396,935 | 2,533,720 |
-| Students | 18,064 | 2,593 | 18,180 |
+| Students (clean) | 18,064 | 2,593 | 18,180 |
+| Held-out split | by student: 14,452 train / 3,612 test | by time within learner (shared-task split; all 2,593 on both sides) | by student hash: 14,572 / 3,608 |
 | "Area" | level-2 KC (53) | POS tag (16) | skill_id (265) |
 | Re-attempts of same item | 183,806 (3.35%) | 2,490,031 (73.3%) | 124,838 (4.9%) |
 | of which corrections / reviews | 47,175 / 136,631 | 290,938 / 2,199,093 | 43,908 / 80,930 |
 | Student model (test AUC) | KTCF released DKT, 0.777 | GBM history model, 0.799 | GBM history model, 0.754 |
 
-Sources: `out/*/s1_log.json`, `s2.log`. ASSISTments is the common benchmark of DKT-Forget, DAS3H, HawkesKT and LPKT; the GBM student model's AUC is in line with DKT-Forget's published 0.73 on this data.
+Sources: `out/uplift/*/s1_log.json`, `s2.log`. "Held out" means unseen students on XES3G5M and ASSISTments, and each learner's later exercises on SLAM; in all three the model never sees the outcomes it is scored on. ASSISTments is the common benchmark of DKT-Forget, DAS3H, HawkesKT and LPKT; the GBM student model's AUC is in line with DKT-Forget's published 0.73 on this data.
 
 Action labels: `new` (first attempt), `correction` (re-attempt after a wrong answer), `review` (re-attempt after a right answer). Outcomes: **area** = accuracy on the next 5 same-area items in later exercises, excluding the item itself; **item** = correct at the item's next encounter; **area20** = next 20 same-area items.
 
@@ -55,9 +61,20 @@ For every held-out review (treated) and matched new-item event in the same area 
 | | predicted correctness | 0.020 | 0.086 | 0.013 |
 | | random | 0.051 | 0.060 | 0.052 |
 
-Lift-ranked reviews beat predicted-correctness-ranked reviews in all 12 cells; predicted correctness is at or below random in 11 of 12. "Headroom" restricts to decision points where the student's recent same-area accuracy is below 0.8. Held-out counts (reviews / controls): XES3G5M 16,624 / 82,637 (area), 701 / 3,459 (item; underpowered, reported for direction only); SLAM 380,564 / 128,877 and 347,383 / 46,467; ASSISTments 9,300 / 45,789 and 1,755 / 7,759. Source: `out/headline_table.csv`; per-seed files `*/s5_event_qini*_s*.csv`.
+Lift-ranked reviews beat predicted-correctness-ranked reviews in all 12 cells; predicted
+correctness is at or below random in 11 of 12. "Headroom" restricts to decision points where the student's recent same-area accuracy is below 0.8. Held-out counts (reviews / controls): XES3G5M 16,624 / 82,637 (area), 701 / 3,459 (item; underpowered, reported for direction only); SLAM 380,564 / 128,877 and 347,383 / 46,467 (corrections 42,922 / 46,045); ASSISTments 9,300 / 45,789 and 1,755 / 7,759. Source: `out/uplift/headline_table.csv`; per-seed files `*/s5_event_qini*_s*.csv`.
 
 Calibration: by decile of predicted lift, observed treated-minus-control gain rises monotonically on all three datasets (e.g. SLAM reviews, area: +0.007 lowest decile → +0.18 top decile). Source: `*/s5_tau_calibration*_s0.csv`.
+
+**Uncertainty on the gap.** Student-clustered bootstrap (300 resamples per seed, mean of 3 seeds) for the difference in top-20% gain, lift (τ_LCB) minus predicted correctness, and lift minus random, on the same held-out events:
+
+| Reviews | Area: vs pred. corr. [95% CI] | vs random | Item: vs pred. corr. | vs random |
+|---|---|---|---|---|
+| XES3G5M | +0.090 [+0.081, +0.100] | +0.060 [+0.049, +0.070] | +0.156 [+0.093, +0.214] | +0.143 [+0.068, +0.206] |
+| SLAM | +0.128 [+0.119, +0.139] | +0.129 [+0.121, +0.139] | +0.248 [+0.225, +0.268] | +0.247 [+0.228, +0.268] |
+| ASSISTments | +0.114 [+0.091, +0.133] | +0.080 [+0.061, +0.096] | +0.295 [+0.242, +0.346] | +0.233 [+0.172, +0.288] |
+
+All twelve intervals exclude zero. Source: `out/uplift/paired_table.csv`.
 
 ## 5. Corrections: platform-dependent
 
@@ -68,7 +85,10 @@ Calibration: by decile of predicted lift, observed treated-minus-control gain ri
 
 Positive on XES3G5M and SLAM, null on ASSISTments at the area level, where a same-problem correction is almost always an immediate retry after a miss. Corrections help where a correction is a return to the item, not an instant retry.
 
-**New-practice policy** (re-attempt only if τ_LCB > 0, otherwise a new item in the same area; area outcome, IPW-weighted on held-out events):
+Clustered CIs on the gap vs predicted correctness: XES3G5M area +0.099 [+0.071, +0.133], item +0.062 [−0.053, +0.177] (n = 306, inconclusive); SLAM area +0.083 [+0.067, +0.095], item +0.116 [+0.098, +0.135]; ASSISTments area **−0.065 [−0.103, −0.021]** (lift ranking is worse than the heuristic and no better than random, −0.004 [−0.031, +0.020]), item +0.190 [+0.016, +0.333] (n = 936). The ASSISTments area cell is the one place in the study where lift ranking loses; it is the case where a correction is an instant retry, and the veto below, not the ranker, is the right tool.
+
+**New-practice policy** (re-attempt only if τ_LCB > 0, otherwise a new item in the same area;
+area outcome, IPW-weighted on held-out events):
 
 | | share of corrections sent to new practice | those re-attempts vs new item | policy gain |
 |---|---|---|---|
@@ -95,6 +115,19 @@ On SLAM (38% realized) the per-area-baseline gain of lift-ranked lists over the 
 trajectory was +0.029 [+0.017, +0.039] on all tokens and −0.001 [−0.022, +0.020] on content words:
 the all-token gain is carried by function-word reviews. The student model's own simulated validity is
 0.90–0.97 for every selector including random and cannot adjudicate. Source: `*/s4_set_summary*.csv`.
+
+## 6b. Transfer across platforms
+
+The covariates carry no item or skill identity, so a model fitted on one platform can score another with no retraining. Reviews, top-20% gain, mean ± sd over 3 seeds:
+
+| evaluated on | in-domain τ_LCB | zero-shot τ_LCB (model from the other platform) | predicted correctness | random |
+|---|---|---|---|---|
+| ASSISTments, item | 0.301 | **0.117** ± .015 (from SLAM) | 0.006 | 0.062 |
+| SLAM, item | 0.321 | **0.190** ± .058 (from ASSISTments) | 0.073 | 0.080 |
+| ASSISTments, area | 0.144 | 0.065 ± .014 (from SLAM) | 0.030 | 0.057 |
+| SLAM, area | 0.175 | 0.044 ± .007 (from ASSISTments) | 0.047 | 0.047 |
+
+At the item level a model trained on Spanish speakers learning English words recovers a quarter to a half of the in-domain lift on US middle-school math (and vice versa) and beats predicted correctness in both directions; at the area level there is no transfer, and corrections do not transfer at all. What makes a review worth doing *for the item itself* — recent accuracy, exposure count, gap, difficulty — is partly platform-independent; what makes it worth doing for the surrounding topic is not. Source: `results/uplift/transfer_table.csv`.
 
 ## 7. Estimators
 
