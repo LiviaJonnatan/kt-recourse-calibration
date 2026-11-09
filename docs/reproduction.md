@@ -202,7 +202,7 @@ Kept in `src/ktcf_patches/ktcf-work.patch`; rebuild instructions in `src/ktcf_pa
 - The 0.5 validity threshold is hard-coded in `eval_validity`; `target_proba = 1.0` is a module constant in `cf_generator.py`.
 - Model family 1 is concept-level by construction. The question-aware and forgetting-aware families (pre-registration §5) need upstream `pykt-toolkit`, since KTCF's vendored copy ships only `dkt.py`.
 
-# Study 2 — uplift-objective recourse (append to docs/reproduction.md)
+## Study 2 — uplift-objective recourse
 
 **What was run.** `src/uplift/` stages 0–8 on XES3G5M (KTCF's released DKT checkpoint, no
 retraining), Duolingo SLAM en_es, and ASSISTments 2012-13 (skill-tagged original problems); three
@@ -230,5 +230,14 @@ pseudo-outcome. Decision: τ_LCB is the reported estimator; τ_DR is a debiasing
 
 **Sandbox vs laptop settings.** Sandbox: 8 bootstraps, 200k treated cap, 300–600 students at set
 level. Laptop (results of record): 20 bootstraps, 300k treated cap, 3 seeds, 1,000 students.
+
+**Student-model ablation (pyKT, one seed).** Export via `s13_pykt_export.py` (200-step chunks, −1 padding,
+timestamps in seconds); pyKT 0.x in a Python 3.12 venv (scipy from a Python 3.10 standalone build failed to
+load on macOS; `tqdm`, `einops`, `wandb` had to be installed by hand; `data_config.json` needs the full
+entry incl. `folds`). Validation AUC from pyKT: SLAM DKT-Forget 0.757; ASSISTments DKT 0.725, DKT-Forget
+0.728. AUC on our evaluation rows via `s14_pykt_predict.py`: SLAM DKT 0.7495, DKT-Forget 0.7407;
+ASSISTments DKT 0.7285, DKT-Forget 0.7312. `s14` strips training hyperparameters from pyKT's
+`model_config` before `init_model`, reads the concept map with `dtype=str` (ASSISTments skill ids), and
+mirrors pyKT's `calC` gap discretisation (`round(log2(t+1))`, `+1` on gaps, none on counts).
 
 **Corrections made during the study** are listed in `docs/uplift/RESULTS.md`.

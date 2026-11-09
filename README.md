@@ -104,10 +104,6 @@ XES3G5M (Liu et al., NeurIPS 2023): 18,066 students, 5.5 million interactions, 7
 
 Observed effects are associations, not causal estimates: students who re-attempt differ from students who do not, and public logs contain no randomized interventions. The calibration test is a necessary condition for recourse to work, not evidence that it does. One dataset, one platform, one subject, one released model.
 
-### Status
-
-Study 1 complete (October 2026). The KTCF authors have been contacted about the validity finding; their response will be reflected here.
-
 ## Study 2: recommend by causal lift, not predicted correctness
 
 Knowledge-tracing models predict whether a student will answer the next question correctly; KTCF turns that into a study list by asking which past wrong answers, if flipped, would make the model predict success. Study 1 showed the model's self-grade is uninformative (0.90–0.97 for any list, including random). Study 2 replaces the objective: rank past questions by the **estimated causal lift** of re-attempting them now — reviews of correct items included — on the student's *observed* subsequent performance, compared with attempting a new question in the same area, with propensity adjustment for who chooses to re-attempt.
@@ -146,7 +142,7 @@ performance. The data are observational; re-attempts were chosen by students and
 schedulers; the method ranks them after the fact with propensity weighting. The delivered
 recommendation can only be tested by randomized assignment.
 
-**Known limitations.** Gradient-boosted history model stands in for a DKT on SLAM and ASSISTments;
+**Known limitations.** Gradient-boosted history model is the student model of record on SLAM and ASSISTments, with pyKT DKT / DKT-Forget as a one-seed ablation that leaves the conclusions unchanged;
 one-flip approximation of KTCF on those datasets; item-level outcome underpowered on XES3G5M;
 timing not identifiable from any of the three logs; set-level evaluation possible only on SLAM and
 null there on content words.

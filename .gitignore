@@ -16,7 +16,16 @@ config.local.yaml
 
 data/raw
 data/processed
+data/pykt
 !data/README.md
+
+out/assist
+out/assist_dkt
+out/assist_forget
+out/slam
+out/slam_dkt
+out/slam_forget
+out/xes
 
 # macOS
 .DS_Store

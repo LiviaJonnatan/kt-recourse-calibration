@@ -122,3 +122,8 @@ Place `assist2012_slim_csv.gz` (~84 MB) under `data/raw/assist/`. `correct` is b
 LPKT and is preprocessed by pyKT as `assist2012`.
 
 **XES3G5M** — unchanged from Study 1 (`question_level/*_quelevel.csv`, `metadata/questions.json`).
+
+**pyKT exports** — `data/pykt/<dataset>/` holds `train_valid_sequences.csv`, `test_sequences.csv`,
+`test_window_sequences.csv`, `concept_map.csv`, `question_map.csv` written by `s13_pykt_export.py` from
+`events.parquet` (derived data; regenerable; not committed). Trained pyKT checkpoints live in the sister
+`pykt-toolkit/examples/saved_model/` and are not part of this repo.

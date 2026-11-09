@@ -61,8 +61,7 @@ For every held-out review (treated) and matched new-item event in the same area 
 | | predicted correctness | 0.020 | 0.086 | 0.013 |
 | | random | 0.051 | 0.060 | 0.052 |
 
-Lift-ranked reviews beat predicted-correctness-ranked reviews in all 12 cells; predicted
-correctness is at or below random in 11 of 12. "Headroom" restricts to decision points where the student's recent same-area accuracy is below 0.8. Held-out counts (reviews / controls): XES3G5M 16,624 / 82,637 (area), 701 / 3,459 (item; underpowered, reported for direction only); SLAM 380,564 / 128,877 and 347,383 / 46,467 (corrections 42,922 / 46,045); ASSISTments 9,300 / 45,789 and 1,755 / 7,759. Source: `out/uplift/headline_table.csv`; per-seed files `*/s5_event_qini*_s*.csv`.
+Lift-ranked reviews beat predicted-correctness-ranked reviews in all 12 cells; predicted correctness is at or below random in 11 of 12. "Headroom" restricts to decision points where the student's recent same-area accuracy is below 0.8. Held-out counts (reviews / controls): XES3G5M 16,624 / 82,637 (area), 701 / 3,459 (item; underpowered, reported for direction only); SLAM 380,564 / 128,877 and 347,383 / 46,467 (corrections 42,922 / 46,045); ASSISTments 9,300 / 45,789 and 1,755 / 7,759. Source: `out/uplift/headline_table.csv`; per-seed files `*/s5_event_qini*_s*.csv`.
 
 Calibration: by decile of predicted lift, observed treated-minus-control gain rises monotonically on all three datasets (e.g. SLAM reviews, area: +0.007 lowest decile → +0.18 top decile). Source: `*/s5_tau_calibration*_s0.csv`.
 
@@ -98,6 +97,23 @@ area outcome, IPW-weighted on held-out events):
 
 For reviews the same policy is neutral or slightly harmful (−0.006 / +0.002 / −0.017): reviews beat new practice on average everywhere, so the model's job there is to rank, not to veto. Deployed rule: apply the veto to corrections only. Source: `*/s7_new_practice_s0.csv`.
 
+**Joint model (ablation, rejected).** One effect model over both re-attempt types with action type as
+a feature, so corrections and reviews are scored on one scale. τ_LCB top-20% gain, joint vs separate-arm
+models (mean over 3 seeds): reviews area XES3G5M 0.043 vs 0.080, SLAM 0.181 vs 0.175, ASSISTments 0.152
+vs 0.144; reviews item SLAM 0.282 vs 0.321, ASSISTments 0.169 vs 0.301; corrections worse everywhere
+(e.g. XES3G5M −0.046 vs 0.019, SLAM item 0.042 vs 0.100). Pooling the arms costs up to 13 points on
+item-level reviews; the separate-arm models are retained. When both arms compete in one ranking, reviews
+fill 89–98% of the top slice, so the practical recommender is "rank reviews; handle corrections by the
+veto." Source: `out/uplift/*/s12_joint*_s*.csv`.
+
+**Veto threshold.** A threshold t* learned on train (maximising IPW policy value) versus the fixed
+τ_LCB ≤ 0 rule, policy gain over always-re-attempt (3-seed means): reviews XES3G5M −0.004 → +0.014,
+SLAM area +0.006 → +0.011, SLAM item −0.012 → +0.009, ASSISTments −0.015 → −0.002 and −0.046 →
+−0.027; corrections XES3G5M 0.049 → 0.045, SLAM item 0.006 → 0.027, ASSISTments item 0.063 → 0.024.
+The learned threshold is negative (−0.01 to −0.05: "re-attempt unless the model is fairly sure it
+hurts"); it removes the fixed rule's harm on reviews and overfits on the small ASSISTments correction
+set. Deployed rule: learned threshold for reviews, fixed τ_LCB ≤ 0 for corrections.
+
 ## 6. Secondary results
 
 **20-item window.** Reviews τ_LCB vs predicted correctness vs random: XES3G5M 0.039 / −0.001 / 0.028 (effect washes out); SLAM 0.165 / 0.059 / 0.042 and ASSISTments 0.158 / 0.011 / 0.061 (effect persists). Short-range on math platform practice, longer-range on language and skill-builder data. Source: `headline_table.csv`, outcome `_area20`.
@@ -127,7 +143,41 @@ The covariates carry no item or skill identity, so a model fitted on one platfor
 | ASSISTments, area | 0.144 | 0.065 ± .014 (from SLAM) | 0.030 | 0.057 |
 | SLAM, area | 0.175 | 0.044 ± .007 (from ASSISTments) | 0.047 | 0.047 |
 
-At the item level a model trained on Spanish speakers learning English words recovers a quarter to a half of the in-domain lift on US middle-school math (and vice versa) and beats predicted correctness in both directions; at the area level there is no transfer, and corrections do not transfer at all. What makes a review worth doing *for the item itself* — recent accuracy, exposure count, gap, difficulty — is partly platform-independent; what makes it worth doing for the surrounding topic is not. Source: `results/uplift/transfer_table.csv`.
+At the item level a model trained on Spanish speakers learning English words recovers a quarter to a half of the in-domain lift on US middle-school math (and vice versa) and beats predicted correctness in both directions; at the area level there is no transfer, and corrections do not transfer at all. What makes a review worth doing *for the item itself* — recent accuracy, exposure count, gap, difficulty — is partly platform-independent; what makes it worth doing for the surrounding topic is not. Source: `out/uplift/transfer_table.csv`.
+
+## 6c. Student-model ablation (pyKT DKT and DKT-Forget)
+
+On SLAM and ASSISTments the student model of record is a gradient-boosted history model (GBM). To test
+whether a sequence model changes anything, pyKT `dkt` and `dkt_forget` were trained on the same event
+tables (concept = area, question = item; `s13_pykt_export.py`, `s14_pykt_predict.py`) and their
+predictions substituted for `p_dkt`, then stages 3 and 5 rerun (seed 0). Test AUC on the evaluation
+rows: SLAM GBM 0.799, DKT 0.750, DKT-Forget 0.741; ASSISTments GBM 0.754, DKT 0.729, DKT-Forget 0.731
+(DKT-Forget's published ASSIST2012 AUC is ≈ 0.73).
+
+Reviews, top-20% gain, τ_LCB / predicted correctness / random:
+
+| | student model | area | item |
+|---|---|---|---|
+| SLAM | GBM (record, 3 seeds) | 0.175 / 0.047 / 0.047 | 0.321 / 0.073 / 0.069 |
+| | DKT | 0.126 / 0.007 / 0.049 | 0.249 / 0.054 / 0.076 |
+| | DKT-Forget | 0.123 / 0.008 / 0.049 | 0.272 / 0.053 / 0.076 |
+| ASSISTments | GBM (record, 3 seeds) | 0.144 / 0.030 / 0.056 | 0.301 / 0.006 / 0.102 |
+| | DKT | 0.110 / 0.028 / 0.056 | 0.277 / 0.049 / 0.102 |
+| | DKT-Forget | 0.122 / 0.030 / 0.056 | 0.253 / 0.040 / 0.102 |
+
+1. A real DKT does not rescue predicted-correctness ranking: 0.007–0.054 against random 0.049–0.102
+   on every cell.
+2. Lift ranking holds with the DKT at 3–7 points lower magnitude; the gap over predicted correctness
+   stays at 8–23 points. The GBM is the better covariate because it sees item-level exposure and gap,
+   which a concept-sequence DKT does not; it is reported as the student model of record on these two
+   datasets, not as a stand-in.
+3. Forgetting-aware vs plain DKT: no consistent difference (−0.024 to +0.023). The time information
+   the ranker needs is already carried by `gap_log` and `p_hlr` as direct covariates.
+
+Caveat: the SLAM DKT-Forget was trained on gap features pyKT discretised from timestamps exported in
+seconds and divided as milliseconds, collapsing most gaps into 1–2 bins (`num_rgap = 7`); its lower AUC
+reflects that, not the architecture. ASSISTments (`num_rgap = 19`) is the clean DKT vs DKT-Forget
+comparison. One seed. Source: `out/uplift/{slam,assist}_{dkt,forget}/s5_event_qini*_s0.csv`.
 
 ## 7. Estimators
 
@@ -153,6 +203,11 @@ the three everywhere.
 
 ## 9. Claims and limitations
 
-Claimed: (i) most of the observational effect of re-attempting is selection; (ii) ranking reviews by estimated causal lift identifies re-attempts followed by 8–18 points higher same-area accuracy and 18–32 points higher item recall than ranking by predicted correctness, on three platforms, with predicted correctness no better than random; (iii) the model also identifies corrections that should be replaced by new practice; (iv) the student model's self-scored validity cannot distinguish recommendation methods.
+Claimed: (i) most of the observational effect of re-attempting is selection; (ii) ranking reviews by
+estimated causal lift identifies re-attempts followed by 8–18 points higher same-area accuracy and
+18–32 points higher item recall than ranking by predicted correctness, on three platforms, with
+predicted correctness no better than random; (iii) the model also identifies corrections that should
+be replaced by new practice; (iv) the student model's self-scored validity cannot distinguish
+recommendation methods.
 
-Not claimed: that delivering a study list to a student improves their performance. All evidence is observational and event-level: the re-attempts the method ranks highest were followed by larger gains when students happened to do them. Re-attempts were chosen by students and platform schedulers, not by the method; propensity weighting is applied throughout. A randomized study is the only test of the delivered recommendation. Other limits: SLAM and ASSISTments use a gradient-boosted history model rather than a DKT (pyKT DKT swap is a planned ablation); the KTCF-flip baseline on those datasets is a one-flip approximation; item-level outcomes on XES3G5M are underpowered.
+Not claimed: that delivering a study list to a student improves their performance. All evidence is observational and event-level: the re-attempts the method ranks highest were followed by larger gains when students happened to do them. Re-attempts were chosen by students and platform schedulers, not by the method; propensity weighting is applied throughout. A randomized study is the only test of the delivered recommendation. Other limits: on SLAM and ASSISTments the student model of record is a gradient-boosted history model, with pyKT DKT / DKT-Forget run as a one-seed ablation (§6c); the KTCF-flip baseline on those datasets is a one-flip approximation; item-level outcomes on XES3G5M are underpowered.
