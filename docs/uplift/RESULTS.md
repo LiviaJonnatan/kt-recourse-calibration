@@ -114,6 +114,42 @@ The learned threshold is negative (−0.01 to −0.05: "re-attempt unless the mo
 hurts"); it removes the fixed rule's harm on reviews and overfits on the small ASSISTments correction
 set. Deployed rule: learned threshold for reviews, fixed τ_LCB ≤ 0 for corrections.
 
+## 5b. What to give a stuck student (lost causes)
+
+The veto says when not to recommend a correction; this asks what to recommend instead. Decision
+points are wrong answers; the student is *stuck* if recent same-topic accuracy is below 0.5, otherwise a
+*slip*. The action is what they did next: retry the same item; a new item on the same topic (easier /
+matched / harder than their current error rate); or another topic (on XES3G5M split by the KC tree
+into sibling / cousin / unrelated; on SLAM and ASSISTments a single "switch"). Outcome: accuracy on the
+next five same-topic items after the next interaction. Because switching away necessarily means time
+passes before the student returns, every contrast is made within the same return-gap bin (<1 h,
+1 h–1 d, >1 d) and paired within student. Three seeds; the paired contrasts do not depend on the
+fitted models and are identical across seeds, the learned policy does. (`s15_lost_cause_policy.py`.)
+
+Held-out decision points: XES3G5M 82,875 (15,059 stuck), ASSISTments 57,575 (20,056 stuck), SLAM
+90,639 (4,890 stuck).
+
+1. **Switching topic does not help once elapsed time is held fixed.** XES3G5M, paired: sibling vs stay
+   +0.003 [−0.13, +0.13] (stuck), −0.001 [−0.017, +0.014] (slip); unrelated vs stay +0.001 [−0.007,
+   +0.009] (slip). Switch vs stay is slightly negative on ASSISTments (−0.018 [−0.031, −0.006]) and SLAM
+   (−0.014 [−0.024, −0.004]). Any apparent benefit of changing topic after a miss is spacing, not content.
+2. **An easier item on the same topic helps by one to three points.** Easier vs harder / matched, slips:
+   XES3G5M +0.011 [+0.004, +0.019], ASSISTments +0.013 [+0.001, +0.025] and +0.014 [+0.004, +0.025],
+   SLAM +0.026 [+0.003, +0.048]. Stuck students: XES3G5M +0.039 [−0.001, +0.076] (n = 225), ASSISTments
+   +0.010 [−0.009, +0.028] (n = 570); right sign, underpowered.
+3. **A learned stuck-student policy beats what students did.** Outcome-by-action model on train, argmax
+   action per held-out stuck event, paired match-vs-other within student and gap bin, mean of 3 seeds:
+   ASSISTments **+0.022** (per seed +0.016 [+0.004, +0.030], +0.029 [+0.018, +0.042], +0.020 [+0.009,
+   +0.031]; the policy is 89–92% "easier item, same topic"); XES3G5M +0.028 (each seed's CI excludes
+   zero) but the recommendation mix swings between "retry the same item" (42–53%) and "sibling topic"
+   (28–45%) across seeds, driven by 65 and 431 stuck events — the gain is real, the attribution is not
+   trusted; SLAM +0.017 with all CIs spanning zero (n ≈ 150 pairs).
+
+Recommendation for lost causes, as supported: do not repeat the missed item (veto, §5); do not switch
+topic for its own sake; give an easier item on the same topic. Prerequisite-topic recommendations are
+not testable here: the KC route is a hierarchy, not a sequence, and none of the three datasets ships a
+prerequisite graph. Source: `out/uplift/*/s15_lost_cause_{table,paired,policy_mix}_s*.csv`.
+
 ## 6. Secondary results
 
 **20-item window.** Reviews τ_LCB vs predicted correctness vs random: XES3G5M 0.039 / −0.001 / 0.028 (effect washes out); SLAM 0.165 / 0.059 / 0.042 and ASSISTments 0.158 / 0.011 / 0.061 (effect persists). Short-range on math platform practice, longer-range on language and skill-builder data. Source: `headline_table.csv`, outcome `_area20`.

@@ -21,6 +21,7 @@ Results and interpretation: `docs/uplift/RESULTS.md`. This file is the run book 
 | 12 | `s12_joint.py` | events + p_dkt (+ stage-3 scored_test for comparison) | `s12_joint<tag>.csv` (joint model, learned veto) |
 | 13 | `s13_pykt_export.py` | events | pyKT-format sequences under `data/pykt/<dataset>/` |
 | 14 | `s14_pykt_predict.py` | pyKT checkpoint | `p_dkt_{train,test}<suffix>.parquet` from a trained DKT (pyKT env) |
+| 15 | `s15_lost_cause_policy.py` | events + p_dkt (+ questions.json for XES3G5M) | `s15_lost_cause_{table,paired,policy_mix}_s<seed>.csv` |
 | — | `metrics.py` | | Qini, uplift@k, IPW weights, four-group, DR set value |
 
 ## Setup
@@ -87,6 +88,16 @@ for S in 0 1 2; do   # joint model + learned veto (add --extra p_hlr for slam/as
   python s12_joint.py --out ../../out/D --tag _s$S --boot 20 --seed $S
 done
 ```
+
+## Lost-cause policy (what to give a stuck student)
+```
+for S in 0 1 2; do
+  python s15_lost_cause_policy.py --out ../../out/xes    --raw ../../data/raw/XES3G5M --seed $S
+  python s15_lost_cause_policy.py --out ../../out/slam   --seed $S
+  python s15_lost_cause_policy.py --out ../../out/assist --seed $S
+done
+```
+XES3G5M needs ~3 GB RAM and ~5 min; the others ~2 min.
 
 ## Student-model ablation with pyKT (separate venv; see docs/uplift/RESULTS.md §6c)
 1. `uv venv --python 3.12` in a sister clone of pykt-toolkit; `uv pip install torch scipy numpy scikit-learn pandas pyarrow tqdm wandb einops`; `uv pip install -e . --no-deps`.
